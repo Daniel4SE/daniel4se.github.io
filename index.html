@@ -176,11 +176,11 @@
                 background-repeat: no-repeat;  /* 防止背景图片重复 */
             }
             nav {
-                padding: 10px 0;  /* 上下内边距 */
+                padding: 20px 0;  /* 上下内边距 */
             }
 
             nav a {
-                color: white;  /* 超链接的颜色 */
+                color: rgb(16, 16, 16);  /* 超链接的颜色 */
                 padding: 5px 10px;  /* 给每个链接添加一些内边距 */
                 text-decoration: none;  /* 去掉下划线 */
                 transition: background-color 0.3s ease;  /* 平滑的背景颜色过渡效果 */
@@ -188,6 +188,31 @@
 
             nav a:hover {
                 background-color: rgba(0, 0, 0, 0.2);  /* 悬停时的背景颜色 */
+            }
+
+            .header-container {
+                background: url('images/snowtitle.jpg') no-repeat center center;
+                background-size: cover;
+                padding: 10px 0;
+            }
+
+            .menu {
+                display: flex;
+                justify-content: space-around;
+                list-style-type: none;
+                padding-bottom: 20px;  /* Adds some space between nav and profile content */
+            }
+
+            .menu li a {
+                color: white;
+                text-decoration: none;
+                padding: 5px 10px;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
+
+            .menu li a:hover {
+                background-color: rgba(255, 255, 255, 0.2);
             }
 
 
@@ -202,52 +227,59 @@
 	</head>
 
 	<body>        
-        <nav>
-        <ul class="menu">
-          
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./publications.html">Publications</a></li>
-            <li><a href="./artifacts.html">Artifacts</a></li>
-            <li><a href="./services.html">Services</a></li>
-            <li><a href="./contact.html">Contact</a></li>
-          
-        </ul>
-        <hr/>
-        </nav>
+        
 
         <br></br>
 
-
-        <div class="profile-container">
-            <img src="images/tang.jpeg" class="profile-image" alt="Xunzhu Tang's Profile Image">
+        <div class="header-container">
+            <nav>
+                <ul class="menu">
+                  
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./publications.html">Publications</a></li>
+                    <li><a href="./artifacts.html">Artifacts</a></li>
+                    <li><a href="./services.html">Services</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                  
+                </ul>
+                <hr/>
+                </nav>
         
-            <div class="profile-text">
-                <h1 id="xunzhutang">Xunzhu Tang</h1>
-                <br></br>
-                <font size="4">
-                    Doctoral Researcher at <a href="https://wwwen.uni.lu/">University of Luxembourg (UL)</a><br>
-                </font>
-                <p style='text-align:justify;'>
-                    I am a doctoral researcher, supervised by <a href="https://bissyande.github.io/">Prof. Dr. Tegawendé F. Bissyandé</a> (ERC Fellow), head in the group <a href="https://wwwen.uni.lu/snt">Trux</a>,
-                    and advised by <a href="https://jacquesklein2302.github.io/">Prof. Dr. Jacques Klein</a> in the Trux group, 
-                    <a href="https://wwwen.uni.lu/snt">Interdisciplinary Security and Trust Centre (SnT)</a>,
-                    <a href="https://wwwen.uni.lu/">University of Luxembourg (UL)</a>. 
-                    <!-- Prior to that, I obtained my master degree in June 2019 from Chongqing University, under the supervision of Prof. Junhao WEN and Prof. Haini CAI.
-                    I worked at Tencent and Didi as an AI researcher during year 2017-2019 (part and full-time). -->
-                    <!-- Rest of the content -->
-                </p>
-                <!-- ... -->
-                <em><strong>Research interests:</strong></em>
-                <p>
-                    <ul>
-                        Automated Program Repair, Patch Explanation, Pull Request Explanation, Bug Localization and Fixing, Healthcare, AI4SE, etc.
-                    </ul>
-                </p>
-                <p>
-                    <a href="https://scholar.google.com/citations?user=MxpAtQoAAAAJ&hl=en">Google Scholar</a> 
-                </p>
-            </div>
+                <div class="profile-container">
+                    <img src="images/tang.jpeg" class="profile-image" alt="Xunzhu Tang's Profile Image">
+                
+                    <div class="profile-text">
+                        <h1 id="xunzhutang">Xunzhu Tang</h1>
+                        <br></br>
+                        <font size="4">
+                            Doctoral Researcher at <a href="https://wwwen.uni.lu/">University of Luxembourg (UL)</a><br>
+                        </font>
+                        <p style='text-align:justify;'>
+                            I am a doctoral researcher, supervised by <a href="https://bissyande.github.io/">Prof. Dr. Tegawendé F. Bissyandé</a> (ERC Fellow), head in the group <a href="https://wwwen.uni.lu/snt">Trux</a>,
+                            and advised by <a href="https://jacquesklein2302.github.io/">Prof. Dr. Jacques Klein</a> in the Trux group, 
+                            <a href="https://wwwen.uni.lu/snt">Interdisciplinary Security and Trust Centre (SnT)</a>,
+                            <a href="https://wwwen.uni.lu/">University of Luxembourg (UL)</a>. 
+                            <!-- Prior to that, I obtained my master degree in June 2019 from Chongqing University, under the supervision of Prof. Junhao WEN and Prof. Haini CAI.
+                            I worked at Tencent and Didi as an AI researcher during year 2017-2019 (part and full-time). -->
+                            <!-- Rest of the content -->
+                        </p>
+                        <!-- ... -->
+                        <em><strong>Research interests:</strong></em>
+                        <p>
+                            <ul>
+                                Automated Program Repair, Patch Explanation, Pull Request Explanation, Bug Localization and Fixing, Healthcare, AI4SE, etc.
+                            </ul>
+                        </p>
+                        <p>
+                            <a href="https://scholar.google.com/citations?user=MxpAtQoAAAAJ&hl=en">Google Scholar</a> 
+                        </p>
+                    </div>
+                </div>
         </div>
+        
+
+
+        
 
 
     
