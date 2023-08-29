@@ -133,6 +133,23 @@
             .profile-text {
                 flex: 1; /* 使文本内容占据剩余的空间 */
             }
+            .section-title {
+                display: flex;
+                align-items: center;  /* 垂直居中图标和文本 */
+                justify-content: center;  /* 水平居中图标和文本 */
+            }
+
+            .section-icon {
+                width: 40px;  /* 或您需要的其他大小 */
+                height: 40px;  /* 或您需要的其他大小 */
+                margin-right: 10px;  /* 在图标和文本之间添加一些间隙 */
+            }
+
+            .boxed-section h2 {
+                font-size: 24px;  /* 调整为您喜欢的大小 */
+                margin: 0;  /* 去除默认的外边距 */
+            }
+
 
         </style>
         
@@ -195,12 +212,27 @@
         Doctoral Researcher at <a href="https://wwwen.uni.lu/">University of Luxembourg (UL)</a><br>
         <!-- <br/>President of Chinese Students Association(CSA) at UL</br> -->
     </font>
- 
-    <h2>News 🔊</h2>
+    
+
+    <div class="boxed-section">
+        <div class="section-title">
+            <img src="images/news.png" alt="Icon" class="section-icon">
+            <h2>News 🔊</h2>
+        </div>
+        <!-- Rest of your content here -->
+        <li>🔊 2023-07, one paper accepted by ACM MM'23</li>
+        <li>🔊 2023-07, one paper accepted by ASE'23</li>
+    </div>
+    
+
+    <!-- <h2>News 🔊</h2>
     <ul>
         <li>🔊 2023-07, one paper accepted by ACM MM'23</li>
         <li>🔊 2023-07, one paper accepted by ASE'23</li>
-    </ul>
+    </ul> -->
+
+
+
     <h2 id="publications">Selected Publications (* Corresponding Author.)</h2>
     
 
