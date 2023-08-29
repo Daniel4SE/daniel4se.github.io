@@ -29,7 +29,7 @@
 
                 width: 100%;
                 height: 100%;
-                background-color: #77d3ef;
+                background-color: #0f576d;
                 color: #000;
                 line-height: 1.6;
                 position: relative;
@@ -232,6 +232,34 @@
             @keyframes snowfall {
                 to {
                     transform: translateY(calc(100vh + 5%));
+                }
+            }
+            .shooting-star {
+                position: absolute;
+                top: 0;
+                left: 50%;
+                width: 3px;
+                height: 3px;
+                background: white;
+                border-radius: 50%;
+                animation: shooting 1.5s infinite;
+            }
+
+            @keyframes shooting {
+                0% {
+                    top: 0;
+                    left: 50%;
+                    opacity: 1;
+                    transform: translate(-50%, -50%) rotate(45deg) scale(0);
+                }
+                70% {
+                    opacity: 1;
+                }
+                100% {
+                    top: 100%;
+                    left: 0;
+                    opacity: 0.5;
+                    transform: translate(-50%, -50%) rotate(45deg) scale(200);
                 }
             }
 
@@ -483,6 +511,25 @@
             // 设置随机旋转速度 (1 to 5)
             snowflake.style.animationTimingFunction = `cubic-bezier(${Math.random()}, ${Math.random()}, ${Math.random()}, ${Math.random()})`;
         }
+
+    </script>
+    <script>
+        function createShootingStar() {
+            const star = document.createElement("div");
+            star.classList.add("shooting-star");
+            document.body.appendChild(star);
+            
+            const randomTop = Math.random() * window.innerHeight;
+            const randomLeft = Math.random() * window.innerWidth;
+            star.style.top = randomTop + "px";
+            star.style.left = randomLeft + "px";
+            
+            setTimeout(() => {
+                star.remove();
+            }, 1500); // 与CSS中的动画时间相匹配
+        }
+
+        setInterval(createShootingStar, 2000); // 每2秒创建一个流星
 
     </script>
     </body>
