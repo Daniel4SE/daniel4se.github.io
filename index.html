@@ -117,6 +117,23 @@
                 top: 110%;
             }
             }    
+
+            .profile-container {
+                display: flex; /* 设置为flex布局 */
+                align-items: start; /* 使头像和文本内容在顶部对齐 */
+            }
+
+            .profile-image {
+                max-width: 22%;
+                min-width: 40px;
+                border-radius: 20%;
+                margin-right: 20px; /* 在图片右侧添加一些空间 */
+            }
+
+            .profile-text {
+                flex: 1; /* 使文本内容占据剩余的空间 */
+            }
+
         </style>
         
 		
@@ -140,7 +157,28 @@
         <hr/>
         </nav>
 
-    <p><img src="images/tang.jpeg" style="max-width:22%;min-width:40px;float:right; border-radius: 20%"/></p>
+    <div class="profile-container">
+        <img src="images/tang.jpeg" class="profile-image" alt="Xunzhu Tang's Profile Image">
+    
+        <div class="profile-text">
+            <h1 id="xunzhutang">Xunzhu Tang</h1>
+            <font size="4">
+                Doctoral Researcher at <a href="https://wwwen.uni.lu/">University of Luxembourg (UL)</a><br>
+            </font>
+            <p style='text-align:justify;'>
+                I am a doctoral researcher, supervised by <a href="https://bissyande.github.io/">Prof. Dr. Tegawendé F. Bissyandé</a> (ERC Fellow), head in the group <a href="https://wwwen.uni.lu/snt">Trux</a>,
+                and advised by <a href="https://jacquesklein2302.github.io/">Prof. Dr. Jacques Klein</a> in the Trux group, 
+                <a href="https://wwwen.uni.lu/snt">Interdisciplinary Security and Trust Centre (SnT)</a>,
+                <a href="https://wwwen.uni.lu/">University of Luxembourg (UL)</a>. 
+                <!-- Prior to that, I obtained my master degree in June 2019 from Chongqing University, under the supervision of Prof. Junhao WEN and Prof. Haini CAI.
+                I worked at Tencent and Didi as an AI researcher during year 2017-2019 (part and full-time). -->
+                <!-- Rest of the content -->
+            </p>
+            <!-- ... -->
+        </div>
+    </div>
+        
+    <!-- <p><img src="images/tang.jpeg" style="max-width:22%;min-width:40px;float:right; border-radius: 20%"/></p>
 
     <h1 id="xunzhutang">Xunzhu Tang</h1>
     <font size="4">
@@ -155,7 +193,7 @@
         <a href="https://wwwen.uni.lu/">University of Luxembourg (UL)</a>. 
         <!-- Prior to that, I obtained my master degree in June 2019 from Chongqing University, under the supervision of Prof. Junhao WEN and Prof. Haini CAI.
         I worked at Tencent and Didi as an AI researcher during year 2017-2019 (part and full-time). -->
-        </p>
+    </p> -->
 
 
     <em><strong>Research interests:</strong></em>
