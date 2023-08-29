@@ -214,6 +214,25 @@
             .menu li a:hover {
                 background-color: rgba(255, 255, 255, 0.2);
             }
+            /*雪花*/
+            .snowflake {
+                position: absolute;
+                top: -10%;
+                z-index: 9999;
+                font-size: 1em;
+                color: white;
+                user-select: none;
+                pointer-events: none;
+                animation-name: snowfall;
+                animation-timing-function: linear;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes snowfall {
+                to {
+                    transform: translateY(calc(100vh + 5%));
+                }
+            }
 
 
 
@@ -422,8 +441,26 @@
       <script async src="js/center-img.js"></script>
       <hr>&copy; <a href="https://Daniel4SE.github.io">Xunzhu Tang</a> 2022 | <a href="https://scholar.google.com/citations?user=MxpAtQoAAAAJ&hl=en">Google Scholar</a> | <a href="https://www.ccf.org.cn/c/2019-07-31/667605.shtml">CCF Rankings</a>
     </footer>
-    
+    <script>    
+        document.addEventListener("DOMContentLoaded", function() {
+            const numberOfSnowflakes = 100;
+        
+            for (let i = 0; i < numberOfSnowflakes; i++) {
+            const snowflake = document.createElement("div");
+            snowflake.innerHTML = "❄️";
+            snowflake.style.left = `${Math.random() * 100}vw`;
+            snowflake.style.animationDuration = `${5 + Math.random() * 5}s`;
+            snowflake.style.animationDelay = `${Math.random() * 5}s`;
+            snowflake.style.opacity = `${0.5 + Math.random() * 0.5}`;
+            snowflake.style.fontSize = `${12 + Math.random() * 16}px`;
+            snowflake.classList.add("snowflake");
+            document.body.appendChild(snowflake);
+            }
+        });
+    </script>
     </body>
+    
+      
 
 </html>
 <div id="twitterFeed">
