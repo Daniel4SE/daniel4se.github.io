@@ -443,21 +443,53 @@
       <hr>&copy; <a href="https://Daniel4SE.github.io">Xunzhu Tang</a> 2022 | <a href="https://scholar.google.com/citations?user=MxpAtQoAAAAJ&hl=en">Google Scholar</a> | <a href="https://www.ccf.org.cn/c/2019-07-31/667605.shtml">CCF Rankings</a>
     </footer>
     <script>    
-        document.addEventListener("DOMContentLoaded", function() {
-            const numberOfSnowflakes = 100;
-        
-            for (let i = 0; i < numberOfSnowflakes; i++) {
-            const snowflake = document.createElement("div");
-            snowflake.innerHTML = "❄️";
-            snowflake.style.left = `${Math.random() * 100}vw`;
-            snowflake.style.animationDuration = `${5 + Math.random() * 5}s`;
-            snowflake.style.animationDelay = `${Math.random() * 5}s`;
-            snowflake.style.opacity = `${0.5 + Math.random() * 0.5}`;
-            snowflake.style.fontSize = `${12 + Math.random() * 16}px`;
-            snowflake.classList.add("snowflake");
-            document.body.appendChild(snowflake);
+        document.addEventListener('DOMContentLoaded', function(){
+            var canvas = document.createElement("canvas");
+            document.body.appendChild(canvas);
+            canvas.style.position = "fixed";
+            canvas.style.top = "0";
+            canvas.style.left = "0";
+            canvas.style.pointerEvents = "none";
+            canvas.style.zIndex = "1000";
+            var ctx = canvas.getContext("2d");
+            var flakes = [];
+            var maxFlakes = 300; // Increase this to add more flakes
+            var h = window.innerHeight;
+            var w = window.innerWidth;
+            canvas.height = h;
+            canvas.width = w;
+
+            function addFlake() {
+                var x = Math.random() * w;
+                var y = 0;
+                var size = Math.random() * 3 + 2;
+                var speed = Math.random() * 1 + 0.5;
+                flakes.push({x: x, y: y, size: size, speed: speed});
+                if (flakes.length > maxFlakes) flakes.shift();
             }
+
+            function snow() {
+                ctx.clearRect(0, 0, w, h);
+                for (var i = 0; i < flakes.length; i++) {
+                    var flake = flakes[i];
+                    ctx.beginPath();
+                    ctx.arc(flake.x, flake.y, flake.size, 0, Math.PI * 2);
+                    ctx.fillStyle = "white";
+                    ctx.fill();
+                    flake.y += flake.speed;
+                    if (flake.y > h) {
+                        flake.y = 0;
+                        flake.x = Math.random() * w;
+                    }
+                }
+            }
+
+            setInterval(function(){
+                snow();
+                addFlake();
+            }, 20); // Decrease this to make flakes appear faster
         });
+
     </script>
     <script>
         // 创建雪花的数量
