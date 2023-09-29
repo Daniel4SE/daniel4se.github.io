@@ -1,279 +1,629 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
+	<head>
+		<script type="text/javascript">
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		
+		  ga('create', 'UA-77256529-1', 'auto');
+		  ga('send', 'pageview');
+		
+		</script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		
+		<meta charset="UTF-8" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xunzhu Tang @ University of Luxembourg</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* 基本样式 */
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
+		<title>Xunzhu Tang @ University of Luxembourg</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                padding: 20px;
+                max-width: 800px;
+                /* margin: auto; */
+                margin:320px;
+                padding: 20px;
+
+                display: table;
+
+                width: 100%;
+                height: 100%;
+                background-color: #a2def1;
+                color: #000;
+                line-height: 1.6;
+                position: relative;
+                font-family: sans-serif;
+                /* overflow: auto; */
+            }
+            a {
+                color: blue;
+            }
+            #twitterFeed {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                width: 300px;
+                height: 500px;
+                overflow-y: auto;
+            }
+        /* Generated CSS from SASS */
+            * {
             margin: 0;
             padding: 0;
-        }
+            box-sizing: border-box !important;
+            }
 
-        a {
-            text-decoration: none;
-            color: #333;
-        }
+            html, body {
+            height: 100%;
+            }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        /* 导航栏样式 */
-        nav {
-            background-color: #333;
-            color: #fff;
-            padding: 15px 0;
-            text-align: center;
-        }
-
-        nav ul {
-            padding: 0;
-            list-style-type: none;
-            overflow: hidden;
-        }
-
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-
-        nav ul li a {
-            color: #fff;
-            padding: 5px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        nav ul li a:hover {
-            background-color: #555;
-        }
-
-        /* 主体内容样式 */
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 30px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .profile {
-            display: flex;
-            align-items: center;
-            padding: 30px 0;
-        }
-
-        .profile img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin-right: 30px;
-        }
-
-        .profile-info h1 {
-            margin: 0;
-            color: #333;
-        }
-
-        .profile-info p {
-            margin-top: 10px;
+            /* body {
+            display: table;
+            width: 100%;
+            height: 100%;
+            background-color: #e0f1f6;
+            color: #000;
             line-height: 1.6;
-        }
+            position: relative;
+            font-family: sans-serif;
+            overflow: auto;
+            } */
 
-        .profile-info a {
-            display: inline-block;
-            margin-top: 10px;
-            background-color: #333;
-            color: #fff;
-            padding: 5px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .profile-info a:hover {
-            background-color: #555;
-        }
-
-        /* 新闻部分样式 */
-        .news, .publications {
-            margin-top: 30px;
-        }
-
-        .news h2, .publications h2 {
-            border-bottom: 2px solid #333;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-
-        .news ul, .publications ul {
-            padding-left: 20px;
-        }
-
-        .news ul li, .publications ul li {
-            margin-bottom: 10px;
-        }
-
-        /* 响应式设计 */
-        @media screen and (max-width: 768px) {
-            .profile {
-                flex-direction: column;
-                align-items: center;
+            .lines {
+                z-index: -1;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 100%;
+                margin: auto;
+                width: 90vw;
             }
 
-            .profile img {
-                margin-right: 0;
-                margin-bottom: 20px;
+            .line {
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            top: 0;
+            left: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            overflow: hidden;
             }
-        }
-    </style>
-</head>
 
-<body>
-    <!-- 导航栏 -->
-    <nav>
-        <ul>
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./publications.html">Publications</a></li>
-            <li><a href="./artifacts.html">Artifacts</a></li>
-            <li><a href="./services.html">Service</a></li>
-            <li><a href="./contact.html">Statistics</a></li>
-        </ul>
-    </nav>
+            .line::after {
+            content: '';
+            display: block;
+            position: absolute;
+            height: 15vh;
+            width: 100%;
+            top: -50%;
+            left: 0;
+            background: linear-gradient(to bottom, rgba(150, 241, 146, 0) 0%, #e690e3 75%, #41d0e6 100%);
+            animation: drop 2s 0s infinite;
+            animation-fill-mode: forwards;
+            animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+            }
 
-    <!-- 主体内容 -->
-    <div class="container">
-        <!-- 个人简介 -->
-        <div class="profile">
-            <img src="images/tang.jpeg" alt="Xunzhu Tang">
-            <div class="profile-info">
-                <h1>Xunzhu Tang</h1>
-                <p>I am a doctoral researcher, supervised by<a href="https://bissyande.github.io/">Prof. Dr. Tegawendé F. BISSYANDE</a> (ERC Fellow), head in the group <a href="https://wwwen.uni.lu/snt">Trux</a>,
-                    and advised by <a href="https://jacquesklein2302.github.io/">Prof. Dr. Jacques Klein</a> in the Trux group, </p>
-                    <a href="https://wwwen.uni.lu/snt">Interdisciplinary Security and Trust Centre (SnT)</a>,
-                    <a href="https://wwwen.uni.lu/">University of Luxembourg (UL)</a>.
-                <h2>My research interests include:</h2>
-                <ul> 
-                    <li>Patch Representation and Explanation</li>
-                    <li>Code Agent</li>
-                    <li>Software Security</li>
-                    <li>Automatic Programm Repair</li>
-                    <li>Large Code(Language) Model</li>
-                    <li>Object-level Software Engineering</li> 
+            .line:nth-child(1) {
+            margin-left: -25%;
+            }
+
+            .line:nth-child(1)::after {
+            animation-delay: 2s;
+            }
+
+            .line:nth-child(3) {
+            margin-left: 25%;
+            }
+
+            .line:nth-child(3)::after {
+            animation-delay: 2.5s;
+            }
+
+            @keyframes drop {
+            0% {
+                top: -50%;
+            }
+            100% {
+                top: 110%;
+            }
+            }    
+
+            .profile-container {
+                display: flex; /* 设置为flex布局 */
+                align-items: start; /* 使头像和文本内容在顶部对齐 */
+            }
+
+            .profile-image {
+                max-width: 22%;
+                min-width: 40px;
+                border-radius: 20%;
+                margin-right: 20px; /* 在图片右侧添加一些空间 */
+            }
+
+            .profile-text {
+                flex: 1; /* 使文本内容占据剩余的空间 */
+            }
+            .section-title {
+                display: flex;
+                align-items: center;  /* 垂直居中图标和文本 */
+                justify-content: center;  /* 水平居中图标和文本 */
+            }
+
+            .section-icon {
+                width: 40px;  /* 或您需要的其他大小 */
+                height: 40px;  /* 或您需要的其他大小 */
+                margin-right: 10px;  /* 在图标和文本之间添加一些间隙 */
+            }
+            .boxed-section {
+                background-color: rgb(122, 200, 239);  /* 背景颜色 */
+                padding: 20px;  /* 内部间距 */
+                border: 1px solid #96c1ef;  /* 边框 */
+                margin-bottom: 20px;  /* 下边距，使各个框之间有空间 */
+                text-align: center;  /* 使文本居中 */
+            }
+            div.boxed-section h4 {
+                text-align: left;
+            }
+
+            /* 如果您还需要标题居左，则可以添加以下样式 */
+            .boxed-section h2 {
+                text-align: left;
+            }
+
+            /* 导航栏 */
+            nav {
+                background-image: url('images/snowtitle.jpg');  /* 使用适当的文件扩展名 */
+                background-size: cover;  /* 背景图片将覆盖整个nav区域 */
+                background-repeat: no-repeat;  /* 防止背景图片重复 */
+            }
+            nav {
+                padding: 20px 0;  /* 上下内边距 */
+            }
+
+            nav a {
+                color: rgb(16, 16, 16);  /* 超链接的颜色 */
+                padding: 5px 10px;  /* 给每个链接添加一些内边距 */
+                text-decoration: none;  /* 去掉下划线 */
+                transition: background-color 0.3s ease;  /* 平滑的背景颜色过渡效果 */
+            }
+
+            nav a:hover {
+                background-color: rgba(7, 193, 7, 0.2);  /* 悬停时的背景颜色 */
+            }
+
+            .header-container {
+                background: url('images/snowtitle.jpg') no-repeat center center;
+                background-size: cover;
+                padding: 10px 0;
+            }
+
+            .menu {
+                display: flex;
+                justify-content: space-around;
+                list-style-type: none;
+                padding-bottom: 20px;  /* Adds some space between nav and profile content */
+            }
+
+            .menu li a {
+                color: rgb(13, 12, 12);
+                text-decoration: none;
+                padding: 5px 10px;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
+
+            .menu li a:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+            /*雪花*/
+            .snowflake {
+                position: absolute;
+                top: -10%;
+                z-index: 9999;
+                font-size: 1em;
+                color: white;
+                user-select: none;
+                pointer-events: none;
+                animation-name: snowfall;
+                animation-timing-function: linear;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes snowfall {
+                to {
+                    transform: translateY(calc(100vh + 5%));
+                }
+            }
+
+        </style>
+        
+		
+		<meta name="keywords" content="Xunzhu Tang, Daniel Tang, Tang Xunzhu, Tang Xunzhu Luxembourg, 唐训祝 卢森堡" />
+	 	<meta name="description" content="Homepage, Xunzhu Tang, University of Luxembourg, Luxembourg" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/fonts.css" />
+	</head>
+
+	<body>        
+        
+
+        <br></br>
+
+        <div class="header-container">
+            <nav>
+                <ul class="menu">
+                  
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./publications.html">Publications</a></li>
+                    <li><a href="./artifacts.html">Artifacts</a></li>
+                    <li><a href="./services.html">Services</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                  
                 </ul>
-                <a href="mailto:xunzhu.tang@uni.lu">xunzhu.tang@uni.lu</a>
-            </div>
+                <hr/>
+                </nav>
+        
+                <div class="profile-container">
+                    <img src="images/tang.jpeg" class="profile-image" alt="Xunzhu Tang's Profile Image">
+                
+                    <div class="profile-text">
+                        <h1 id="xunzhutang">Xunzhu Tang</h1>
+                        <br></br>
+                        <p style='text-align:justify;'>
+                            I am a doctoral researcher, supervised by <a href="https://bissyande.github.io/">Prof. Dr. Tegawendé F. Bissyandé</a> (ERC Fellow), head in the group <a href="https://wwwen.uni.lu/snt">Trux</a>,
+                            and advised by <a href="https://jacquesklein2302.github.io/">Prof. Dr. Jacques Klein</a> in the Trux group, 
+                            <a href="https://wwwen.uni.lu/snt">Interdisciplinary Security and Trust Centre (SnT)</a>,
+                            <a href="https://wwwen.uni.lu/">University of Luxembourg (UL)</a>. 
+                            <!-- Rest of the content -->
+                        </p>
+                        <!-- ... -->
+                        <em><strong>Research interests:</strong></em>
+                        <p>
+                            <ul>
+                                Automated Program Repair, Patch Explanation, Pull Request Explanation, Bug Localization and Fixing, Healthcare, AI4SE, etc.
+                            </ul>
+                        </p>
+                        <p>
+                            <a href="https://scholar.google.com/citations?user=MxpAtQoAAAAJ&hl=en">Google Scholar</a> 
+                        </p>
+                    </div>
+                </div>
         </div>
+        
 
-        <!-- 最新消息 -->
-        <div class="news">
-            <h2>News</h2>
-            <ul>
-                <li>🔊 2023-08, three papers submitted to AAAI'2024 and passed the 1st phase</li>
-                <li>🔊 2023-07, one paper accepted by ACM MM'23</li>
-                <li>🔊 2023-07, one paper accepted by ASE'23</li>
-            </ul>
-        </div>
 
-        <!-- 发表论文 -->
-        <div class="publications">
-            <h2>Publications (* Corresponding Author)</h2>
-            <ul>
-                <h3>2024</h3>
+        
 
-                <h4 style="text-align: left;">ICLR’24 (submission)</h4>
-                <p style='text-align:justify;'>&emsp;<a href="">Just-in-Time Security Patch Detection - LLM At the Rescue for Data Augmentation</a>&nbsp;<a href="">[pdf]</a>
-                    <br><strong>Xunzhu Tang </strong>, Zhenghan Chen, Kisub Kim *, Haoye Tian, Saad Ezzini, Jacques KLEIN, Tegawende F. Bissyande.
-                    <small>submission to <i>ICLR</i>, 2024. </small>
-                </p>
 
-                <h4 style="text-align: left;">ICLR’24 (submission)</h4>
-                <p style='text-align:justify;'>&emsp;<a href="">PatchSynth: a Patch-Text Pre-trained Model</a>&nbsp;<a href="">[pdf]</a>
-                    <br><strong>Xunzhu Tang *</strong>, Zhenghan Chen, Saad Ezzini, Haoye tian, Jacques KLEIN, Tegawende F. Bissyande.
-                    <small>submission to <i>ICLR</i>, 2024. </small>
-                </p>
+    
+    <div class="section-title">
+        <img src="images/news.png" alt="Icon" class="section-icon">
+        <h2>News</h2>
+    </div>
+    <div class="boxed-section">
+        
+        <!-- Rest of your content here -->
+        <ul>
+            <li>🔊 2023-07, one paper accepted by ACM MM'23</li>
+            <li>🔊 2023-07, one paper accepted by ASE'23</li>
+        </ul>
+    </div>
+    
 
-                <!-- <h4 style="text-align: left;">AAAI’24 (submission)</h4>
-                <p style='text-align:justify;'>&emsp;<a href="">EarthMoveFL: A Novel Federated Learning Framework for Multimodal Representation Aggregation Using Earth Mover's Distance</a>&nbsp;<a href="">[pdf]</a>
-                    <br><strong>Xunzhu Tang *</strong>, Zhenghan Chen, Saad Ezzini, Haoye tian, Yewei Song, Jacques KLEIN, Tegawende F. Bissyande.
-                    <small>Passed 1st phase, under review in 2nd phase of <i>AAAI</i>, 2024. </small>
-                </p> -->
-                <h4 style="text-align: left;">AAAI’24 (Passed 1st phase, under review in 2nd phase)</h4>
-                <p style='text-align:justify;'>&emsp;<a href="">Multilevel Semantic Embedding of Software Patches: A Fine-to-Coarse Grained Approach Towards Security Patch Detection</a>&nbsp;<a href="papers/MultiSEM.pdf">[pdf]</a>
-                    <br><strong>Xunzhu Tang *</strong>, Zhenghan Chen, Saad Ezzini, Haoye tian, Yewei Song, Jacques KLEIN, Tegawende F. Bissyande.
-                    <small>Passed 1st phase, under review in 2nd phase of <i>AAAI</i>, 2024. </small>
-                </p>
-                
-                <h4 style="text-align: left;">AAAI’24 (Passed 1st phase, under review in 2nd phase)</h4>
-                <p style='text-align:justify;'>&emsp;<a href="">Hyperbolic Code Retrieval: A Novel Approach for Efficient Code Search Using Hyperbolic Space Embeddings</a>&nbsp;<a href="papers/HyCoQA.pdf">[pdf]</a>
-                    <br><strong>Xunzhu Tang *</strong>, Zhenghan Chen, Saad Ezzini, Haoye tian, Yewei Song, Jacques KLEIN, Tegawende F. Bissyande.
-                    <small>Passed 1st phase, under review in 2nd phase of <i>AAAI</i>, 2024. </small>
-                </p>
+    <!-- <h2>News 🔊</h2>
+    <ul>
+        <li>🔊 2023-07, one paper accepted by ACM MM'23</li>
+        <li>🔊 2023-07, one paper accepted by ASE'23</li>
+    </ul> -->
 
-                <h4 style="text-align: left;">ICSE’24 (submission)</h4>
-                <p style='text-align:justify;'>&emsp;<a href="">Learning to Represent Patches</a>&nbsp;<a href="papers/2023Patcherizer.pdf">[pdf]</a>
-                    <br><strong>Xunzhu Tang </strong>, Haoye Tian*, Zhenghan Chen, Weiguo Pian, Saad Ezzini, Abdoul Kader Kabore, Andrew Habib, Jacques KLEIN, Tegawende F. Bissyande.
-                    <small>Submission to <i>ICSE</i>, 2024. </small>
-                </p>
+    <div class="section-title">
+        <img src="images/hardworking.jpg" alt="Icon" class="section-icon">
+        <h2 id="publications">Selected Publications (* Corresponding Author.)</h2>
+    </div>
+    <div class="boxed-section">
 
-                <h4 style="text-align: left;">EMSE’24 (major revision)</h4>
-                <p style='text-align:justify;'>&emsp;<a href="">App Review Driven Collaborative Bug Finding</a>&nbsp;<a href="papers/EMSE_BugRMSys.pdf">[pdf]</a>&nbsp;<a href="">[bib]</a>
-                    <br><strong>Xunzhu Tang</strong>, Haoye Tian *, Pingfan Kong, Saad Ezzini, Kui Liu, Xin Xia, Jacques Klein, Tegawendé F Bissyandé.
-                    <small>Major revision in <i>EMSE</i>, 2024. </small>
-                </p>
-                
-                <h3>2023</h3>
-                <h4 style="text-align: left;">ACM MM'23</h4>
-                <p style='text-align:justify;'>&emsp;<a href="">Faster Attention with Heterogeneous RGCN for Medical ICD Coding Generation</a>&nbsp;<a href="papers/MM2023.pdf">[pdf]</a>&nbsp;<a href="https://scholar.googleusercontent.com/scholar.bib?q=info:0jFfx3SnU8UJ:scholar.google.com/&output=citation&scisdr=CgXUIJwrEP6gtA0UbyU:AAGBfm0AAAAAY5kSdyVTuj90A67AOiJDXG-QxZWvwWnM&scisig=">[bib]</a>
-                    <br>Zhenghan Chen, Changzeng Fu, Ruoxue Wu, Ye Wang, <strong>Xunzhu Tang *</strong>, Xiaoxuan Liang.
-                    <small>Accepted for publication in <i>ACM MM</i>, 2023. </small>
-                </p>
-                
-                <h4 style="text-align: left;">ASE‘23</h4>
-                <p style='text-align:justify;'>&emsp;<a href="">Delving into Commit-Issue Correlation to Enhance Commit Message Generation Models</a>&nbsp;<a href="papers/ase2023.pdf">[pdf]</a>&nbsp;<a href="https://arxiv.org/abs/2308.00147">[bib]</a>
-                    <br>Liran Wang, <strong>Xunzhu Tang</strong>, Yichen He, Changyu Ren, Shuhua Shi, Chaoran Yan, Zhoujun Li.
-                    <small>Accepted for publication in <i>ASE</i>, 2023. </small>
-                </p>
-                
-                <h4 style="text-align: left;">AAAI'23-W3PHIAI</h4>
-                <p style='text-align:justify;'>&emsp;<a href="">Automatically Extracting Information in Medical Dialogue: Expert System And Attention for Labelling</a>&nbsp;<a href="papers/AAAI2023-W3PHIAI.pdf">[pdf]</a>&nbsp;<a href="https://scholar.googleusercontent.com/scholar.bib?q=info:0jFfx3SnU8UJ:scholar.google.com/&output=citation&scisdr=CgXUIJwrEP6gtA0UbyU:AAGBfm0AAAAAY5kSdyVTuj90A67AOiJDXG-QxZWvwWnM&scisig=AAGBfm0AAAAAY5kSd2eEiuoOL8l1PRTEPlbVz9bIsDbs&scisf=4&ct=citation&cd=-1&hl=en&scfhb=1">[bib]</a>
-                    <br>Xinshi Wang, <strong>Xunzhu Tang</strong>.
-                    <small>Accepted for publication in <i>W3PHIAI23 (AAAI2023 workshop)</i>, 2023. </small>
-                </p>
-                
-                <h4 style="text-align: left;">AAAI'23</h4>
-                <p style='text-align:justify;'>&emsp;<a href="">MetaTPTrans: A Meta Learning Approach for Multilingual Code Representation Learning</a>&nbsp;<a href="papers/2023MetaTPTrans.pdf">[pdf]</a>&nbsp;<a href="https://scholar.googleusercontent.com/scholar.bib?q=info:iv25pnjUUPQJ:scholar.google.com/&output=citation&scisdr=CgUfPiIJEP6gtASfiVg:AAGBfm0AAAAAY5CZkVih_6bBp-L8ocETrfKXGNdsgNma&scisig=AAGBfm0AAAAAY5CZkf1ntRiISJtZmIzKPc4o1kie4unW&scisf=4&ct=citation&cd=-1&hl=en&scfhb=1">[bib]</a>
-                    <br>Weiguo Pian, Hanyu Peng, <strong>Xunzhu Tang</strong>, Tiezhu Sun, Haoye Tian*, Andrew Habib, Jacques Klein, Tegawendé F Bissyandé.
-                    <small>Accepted for publication in <i>Proceedings of the 37th AAAI Conference on Artificial Intelligence</i>, 2023. [<b>Acceptance rate: 19.6% (1,721/8,777)</b>]</small>
-                </p>
+        <h3>2024</h3>
 
-                <h3 >2022</h3>
-                <h4 style="text-align: left;">ASE'22</h4>
-                <p style='text-align:justify;'>&emsp;<a href="">Is this Change the Answer to that Problem? Correlating Descriptions of Bug and Code Changes for Evaluating Patch Correctness</a>&nbsp;<a href="papers/2022_ASE_Quatrain__Haoye_.pdf">[pdf]</a>&nbsp;<a href="https://scholar.googleusercontent.com/scholar.bib?q=info:mB6XdyICHuYJ:scholar.google.com/&output=citation&scisdr=CgUfPiIJEP6gtASf9KM:AAGBfm0AAAAAY5CZ7KMNb5li56L0p_aiaam8K7r2-eZb&scisig=AAGBfm0AAAAAY5CZ7BndauArfuG0MMn3TwRu18Tx-pSZ&scisf=4&ct=citation&cd=-1&hl=en&scfhb=1">[bib]</a>
-                <br>Haoye Tian, <strong>Xunzhu Tang</strong>, Andrew Habib, Shangwen Wang, Kui Liu*, Xin Xia, Jacques Klein, Tegawendé F. Bissyandé.
-                    <small>Accepted in <i>Proceedings of the 37th IEEE/ACM International Conference on Automated Software Engineering</i>, 2022. [<b>Acceptance rate: 22.0% (116/527)</b>]
-                    </small>
-                </p>
-                <h4 style="text-align: left;">DASFAA'22</h4>
-                <p style='text-align:justify;'>&emsp;<a href="">HieNet: Bidirectional Hierarchy Framework for Automated ICD Coding</a>&nbsp;<a href="papers/2022DASFAAHieNet.pdf">[pdf]</a>&nbsp;<a href="https://scholar.googleusercontent.com/scholar.bib?q=info:qGYndtW6VKgJ:scholar.google.com/&output=citation&scisdr=CgUfPiIJEP6gtASQMqU:AAGBfm0AAAAAY5CWKqVecS1JdAbH4DSe60V6vGVjZGCc&scisig=AAGBfm0AAAAAY5CWKkYpVIlnkEZ6MCqcaBQAstRqPNyW&scisf=4&ct=citation&cd=-1&hl=en">[bib]</a>
-                    <br>Shi Wang, <strong>Daniel Tang*</strong>, Luchen Zhang, Huilin Li, Ding Han.
-                    <small>Accepted for publication in <i>Database Systems for Advanced Applications</i>, 2022. [<b>Acceptance rate: 18% (72/400)</b>]</small>
-                </p> 
-            </ul>
-        </div>
+        <h4 style="text-align: left;">ICLR’24 (submission)</h4>
+        <p style='text-align:justify;'>&emsp;<a href="">Just-in-Time Security Patch Detection - LLM At the Rescue for Data Augmentation</a>&nbsp;<a href="">[pdf]</a>
+            <br><strong>Xunzhu Tang </strong>, Zhenghan Chen, Kisub Kim *, Haoye Tian, Saad Ezzini, Jacques KLEIN, Tegawende F. Bissyande.
+            <small>submission to <i>ICLR</i>, 2024. </small>
+        </p>
+
+        <h4 style="text-align: left;">ICLR’24 (submission)</h4>
+        <p style='text-align:justify;'>&emsp;<a href="">PatchSynth: a Patch-Text Pre-trained Model</a>&nbsp;<a href="">[pdf]</a>
+            <br><strong>Xunzhu Tang *</strong>, Zhenghan Chen, Saad Ezzini, Haoye tian, Jacques KLEIN, Tegawende F. Bissyande.
+            <small>submission to <i>ICLR</i>, 2024. </small>
+        </p>
+
+        <!-- <h4 style="text-align: left;">AAAI’24 (submission)</h4>
+        <p style='text-align:justify;'>&emsp;<a href="">EarthMoveFL: A Novel Federated Learning Framework for Multimodal Representation Aggregation Using Earth Mover's Distance</a>&nbsp;<a href="">[pdf]</a>
+            <br><strong>Xunzhu Tang *</strong>, Zhenghan Chen, Saad Ezzini, Haoye tian, Yewei Song, Jacques KLEIN, Tegawende F. Bissyande.
+            <small>Passed 1st phase, under review in 2nd phase of <i>AAAI</i>, 2024. </small>
+        </p> -->
+        <h4 style="text-align: left;">AAAI’24 (Passed 1st phase, under review in 2nd phase)</h4>
+        <p style='text-align:justify;'>&emsp;<a href="">Multilevel Semantic Embedding of Software Patches: A Fine-to-Coarse Grained Approach Towards Security Patch Detection</a>&nbsp;<a href="papers/MultiSEM.pdf">[pdf]</a>
+            <br><strong>Xunzhu Tang *</strong>, Zhenghan Chen, Saad Ezzini, Haoye tian, Yewei Song, Jacques KLEIN, Tegawende F. Bissyande.
+            <small>Passed 1st phase, under review in 2nd phase of <i>AAAI</i>, 2024. </small>
+        </p>
+        
+        <h4 style="text-align: left;">AAAI’24 (Passed 1st phase, under review in 2nd phase)</h4>
+        <p style='text-align:justify;'>&emsp;<a href="">Hyperbolic Code Retrieval: A Novel Approach for Efficient Code Search Using Hyperbolic Space Embeddings</a>&nbsp;<a href="papers/HyCoQA.pdf">[pdf]</a>
+            <br><strong>Xunzhu Tang *</strong>, Zhenghan Chen, Saad Ezzini, Haoye tian, Yewei Song, Jacques KLEIN, Tegawende F. Bissyande.
+            <small>Passed 1st phase, under review in 2nd phase of <i>AAAI</i>, 2024. </small>
+        </p>
+
+        <h4 style="text-align: left;">ICSE’24 (submission)</h4>
+        <p style='text-align:justify;'>&emsp;<a href="">Learning to Represent Patches</a>&nbsp;<a href="papers/2023Patcherizer.pdf">[pdf]</a>
+            <br><strong>Xunzhu Tang </strong>, Haoye Tian*, Zhenghan Chen, Weiguo Pian, Saad Ezzini, Abdoul Kader Kabore, Andrew Habib, Jacques KLEIN, Tegawende F. Bissyande.
+            <small>Submission to <i>ICSE</i>, 2024. </small>
+        </p>
+
+        <h4 style="text-align: left;">EMSE’24 (major revision)</h4>
+        <p style='text-align:justify;'>&emsp;<a href="">App Review Driven Collaborative Bug Finding</a>&nbsp;<a href="papers/EMSE_BugRMSys.pdf">[pdf]</a>&nbsp;<a href="">[bib]</a>
+            <br><strong>Xunzhu Tang</strong>, Haoye Tian *, Pingfan Kong, Saad Ezzini, Kui Liu, Xin Xia, Jacques Klein, Tegawendé F Bissyandé.
+            <small>Major revision in <i>EMSE</i>, 2024. </small>
+        </p>
+        
+        <h3>2023</h3>
+        <h4 style="text-align: left;">ACM MM'23</h4>
+        <p style='text-align:justify;'>&emsp;<a href="">Faster Attention with Heterogeneous RGCN for Medical ICD Coding Generation</a>&nbsp;<a href="papers/MM2023.pdf">[pdf]</a>&nbsp;<a href="https://scholar.googleusercontent.com/scholar.bib?q=info:0jFfx3SnU8UJ:scholar.google.com/&output=citation&scisdr=CgXUIJwrEP6gtA0UbyU:AAGBfm0AAAAAY5kSdyVTuj90A67AOiJDXG-QxZWvwWnM&scisig=">[bib]</a>
+            <br>Zhenghan Chen, Changzeng Fu, Ruoxue Wu, Ye Wang, <strong>Xunzhu Tang *</strong>, Xiaoxuan Liang.
+            <small>Accepted for publication in <i>ACM MM</i>, 2023. </small>
+        </p>
+        
+        <h4 style="text-align: left;">ASE‘23</h4>
+        <p style='text-align:justify;'>&emsp;<a href="">Delving into Commit-Issue Correlation to Enhance Commit Message Generation Models</a>&nbsp;<a href="papers/ase2023.pdf">[pdf]</a>&nbsp;<a href="https://arxiv.org/abs/2308.00147">[bib]</a>
+            <br>Liran Wang, <strong>Xunzhu Tang</strong>, Yichen He, Changyu Ren, Shuhua Shi, Chaoran Yan, Zhoujun Li.
+            <small>Accepted for publication in <i>ASE</i>, 2023. </small>
+        </p>
+        
+        <h4 style="text-align: left;">AAAI'23-W3PHIAI</h4>
+        <p style='text-align:justify;'>&emsp;<a href="">Automatically Extracting Information in Medical Dialogue: Expert System And Attention for Labelling</a>&nbsp;<a href="papers/AAAI2023-W3PHIAI.pdf">[pdf]</a>&nbsp;<a href="https://scholar.googleusercontent.com/scholar.bib?q=info:0jFfx3SnU8UJ:scholar.google.com/&output=citation&scisdr=CgXUIJwrEP6gtA0UbyU:AAGBfm0AAAAAY5kSdyVTuj90A67AOiJDXG-QxZWvwWnM&scisig=AAGBfm0AAAAAY5kSd2eEiuoOL8l1PRTEPlbVz9bIsDbs&scisf=4&ct=citation&cd=-1&hl=en&scfhb=1">[bib]</a>
+            <br>Xinshi Wang, <strong>Xunzhu Tang</strong>.
+            <small>Accepted for publication in <i>W3PHIAI23 (AAAI2023 workshop)</i>, 2023. </small>
+        </p>
+        
+        <h4 style="text-align: left;">AAAI'23</h4>
+        <p style='text-align:justify;'>&emsp;<a href="">MetaTPTrans: A Meta Learning Approach for Multilingual Code Representation Learning</a>&nbsp;<a href="papers/2023MetaTPTrans.pdf">[pdf]</a>&nbsp;<a href="https://scholar.googleusercontent.com/scholar.bib?q=info:iv25pnjUUPQJ:scholar.google.com/&output=citation&scisdr=CgUfPiIJEP6gtASfiVg:AAGBfm0AAAAAY5CZkVih_6bBp-L8ocETrfKXGNdsgNma&scisig=AAGBfm0AAAAAY5CZkf1ntRiISJtZmIzKPc4o1kie4unW&scisf=4&ct=citation&cd=-1&hl=en&scfhb=1">[bib]</a>
+            <br>Weiguo Pian, Hanyu Peng, <strong>Xunzhu Tang</strong>, Tiezhu Sun, Haoye Tian*, Andrew Habib, Jacques Klein, Tegawendé F Bissyandé.
+            <small>Accepted for publication in <i>Proceedings of the 37th AAAI Conference on Artificial Intelligence</i>, 2023. [<b>Acceptance rate: 19.6% (1,721/8,777)</b>]</small>
+        </p>
+
+        <h3 >2022</h3>
+        <h4 style="text-align: left;">ASE'22</h4>
+        <p style='text-align:justify;'>&emsp;<a href="">Is this Change the Answer to that Problem? Correlating Descriptions of Bug and Code Changes for Evaluating Patch Correctness</a>&nbsp;<a href="papers/2022_ASE_Quatrain__Haoye_.pdf">[pdf]</a>&nbsp;<a href="https://scholar.googleusercontent.com/scholar.bib?q=info:mB6XdyICHuYJ:scholar.google.com/&output=citation&scisdr=CgUfPiIJEP6gtASf9KM:AAGBfm0AAAAAY5CZ7KMNb5li56L0p_aiaam8K7r2-eZb&scisig=AAGBfm0AAAAAY5CZ7BndauArfuG0MMn3TwRu18Tx-pSZ&scisf=4&ct=citation&cd=-1&hl=en&scfhb=1">[bib]</a>
+        <br>Haoye Tian, <strong>Xunzhu Tang</strong>, Andrew Habib, Shangwen Wang, Kui Liu*, Xin Xia, Jacques Klein, Tegawendé F. Bissyandé.
+            <small>Accepted in <i>Proceedings of the 37th IEEE/ACM International Conference on Automated Software Engineering</i>, 2022. [<b>Acceptance rate: 22.0% (116/527)</b>]
+            </small>
+        </p>
+        <h4 style="text-align: left;">DASFAA'22</h4>
+        <p style='text-align:justify;'>&emsp;<a href="">HieNet: Bidirectional Hierarchy Framework for Automated ICD Coding</a>&nbsp;<a href="papers/2022DASFAAHieNet.pdf">[pdf]</a>&nbsp;<a href="https://scholar.googleusercontent.com/scholar.bib?q=info:qGYndtW6VKgJ:scholar.google.com/&output=citation&scisdr=CgUfPiIJEP6gtASQMqU:AAGBfm0AAAAAY5CWKqVecS1JdAbH4DSe60V6vGVjZGCc&scisig=AAGBfm0AAAAAY5CWKkYpVIlnkEZ6MCqcaBQAstRqPNyW&scisf=4&ct=citation&cd=-1&hl=en">[bib]</a>
+            <br>Shi Wang, <strong>Daniel Tang*</strong>, Luchen Zhang, Huilin Li, Ding Han.
+            <small>Accepted for publication in <i>Database Systems for Advanced Applications</i>, 2022. [<b>Acceptance rate: 18% (72/400)</b>]</small>
+        </p> 
     </div>
 
-    <!-- 底部版权信息 -->
-    <footer style="text-align: center; padding: 20px 0; background-color: #333; color: #fff;">
-        © 2023 Xunzhu Tang. All rights reserved.
-    </footer>
-</body>
+    <div class="section-title">
+        <img src="images/work.jpg" alt="Icon" class="section-icon">
+        <h2 id="professional-experience">Work Experience</h2>
+    </div>
+    <div class="boxed-section">
+        <ul>
+            <li><strong>Institute of Computing Technology, Chinese Academy of Sciences, Beijing, China</strong>, <em>Sep 2020 - Ocb 2021</em>, Research Assistant.</li>
+            <li><strong>Penn State University</strong>, <em>May 2020 - Aug 2020</em>, Research Assistant Intern.</li>
+        </ul>
+    </div>
 
+    
+    <!-- <script>
+        $(document).ready(function() {
+            $("#servicesContent").load("services.html");
+        });
+    </script> -->
+
+    <div class="section-title">
+        <img src="images/education.jpg" alt="Icon" class="section-icon">
+        <h2 id="Education">Education</h2>
+    </div>
+    <div class="boxed-section">
+        <ul>
+            <li>Doctor Degree, from University of Luxembourg, supervised by <a href="https://wwwen.uni.lu/snt/people/tegawende_francois_d_assise_bissyande">Prof. Dr. Tegawendé F. Bissyandé</a>, 15-10-2021 - Now.</li>
+            <li>Master Degree, from Huazhong University of Science and Technology, Wuhan, China, September 2016 - June 2021.</li>
+            <li>Bachelor Degree, from Guangxi University, Guangxi, China, September 2012 - June 2016.</li>
+        </ul>
+    </div>
+    
+    <div class="section-title">
+        <img src="images/telescope.jpg" alt="Icon" class="section-icon">
+        <h2 id="visitors">Visitors</h2>
+    </div>
+    <div class="boxed-section">
+        <ul>
+            <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=Wav6b_Af0g5wX1gmeQIfuUx5Rsczz9DxcCIANcUIwWQ"></script>
+        </ul>
+    </div>
+    
+
+    
+
+    <div class="lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    
+    <footer>
+      <script src="js/math-code.js"></script>
+      <script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      <script async src="js/center-img.js"></script>
+      <hr>&copy; <a href="https://Daniel4SE.github.io">Xunzhu Tang</a> 2022 | <a href="https://scholar.google.com/citations?user=MxpAtQoAAAAJ&hl=en">Google Scholar</a> | <a href="https://www.ccf.org.cn/c/2019-07-31/667605.shtml">CCF Rankings</a>
+    </footer>
+    <!-- <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        const numberOfSnowflakes = 100;
+
+        for (let i = 0; i < numberOfSnowflakes; i++) {
+            const snowflake = document.createElement("div");
+            snowflake.innerHTML = "❄️";
+            snowflake.style.left = `${Math.random() * 100}vw`;
+            snowflake.style.animationDuration = `${5 + Math.random() * 5}s`;
+            snowflake.style.animationDelay = `${Math.random() * 5}s`;
+            snowflake.style.opacity = `${0.5 + Math.random() * 0.5}`;
+            snowflake.style.fontSize = `${12 + Math.random() * 16}px`;
+            snowflake.classList.add("snowflake");
+            document.body.appendChild(snowflake);
+        }
+        });
+    </script> -->
+    <!-- <script>    
+        document.addEventListener('DOMContentLoaded', function(){
+            var canvas = document.createElement("canvas");
+            document.body.appendChild(canvas);
+            canvas.style.position = "fixed";
+            canvas.style.top = "0";
+            canvas.style.left = "0";
+            canvas.style.pointerEvents = "none";
+            canvas.style.zIndex = "1000";
+            var ctx = canvas.getContext("2d");
+            var flakes = [];
+            var maxFlakes = 300; // Increase this to add more flakes
+            var h = window.innerHeight;
+            var w = window.innerWidth;
+            canvas.height = h;
+            canvas.width = w;
+
+            function addFlake() {
+                var x = Math.random() * w;
+                var y = 0;
+                var size = Math.random() * 3 + 2;
+                var speed = Math.random() * 1 + 0.5;
+                flakes.push({x: x, y: y, size: size, speed: speed});
+                if (flakes.length > maxFlakes) flakes.shift();
+            }
+
+            function snow() {
+                ctx.clearRect(0, 0, w, h);
+                for (var i = 0; i < flakes.length; i++) {
+                    var flake = flakes[i];
+                    ctx.beginPath();
+                    ctx.arc(flake.x, flake.y, flake.size, 0, Math.PI * 2);
+                    ctx.fillStyle = "white";
+                    ctx.fill();
+                    flake.y += flake.speed;
+                    if (flake.y > h) {
+                        flake.y = 0;
+                        flake.x = Math.random() * w;
+                    }
+                }
+            }
+
+            setInterval(function(){
+                snow();
+                addFlake();
+            }, 20); // Decrease this to make flakes appear faster
+        });
+
+    </script> -->
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            var canvas = document.createElement("canvas");
+            document.body.appendChild(canvas);
+            canvas.style.position = "fixed";
+            canvas.style.top = "0";
+            canvas.style.left = "0";
+            canvas.style.pointerEvents = "none";
+            canvas.style.zIndex = "1000";
+            var ctx = canvas.getContext("2d");
+            var flakes = [];
+            var maxFlakes = 500; // You can adjust this for more/less flakes
+            var h = document.documentElement.scrollHeight;
+            var w = document.documentElement.scrollWidth;
+            canvas.height = h;
+            canvas.width = w;
+
+            function addFlake() {
+                var x = Math.random() * w;
+                var y = 0;
+                var size = Math.random() * 3 + 2;
+                var speed = Math.random() * 1 + 0.5;
+                flakes.push({x: x, y: y, size: size, speed: speed});
+                if (flakes.length > maxFlakes) flakes.shift();
+            }
+
+            function snow() {
+                ctx.clearRect(0, 0, w, h);
+                for (var i = 0; i < flakes.length; i++) {
+                    var flake = flakes[i];
+                    ctx.beginPath();
+                    ctx.arc(flake.x, flake.y, flake.size, 0, Math.PI * 2);
+                    ctx.fillStyle = "white";
+                    ctx.fill();
+                    flake.y += flake.speed;
+                    if (flake.y > h) {
+                        flake.y = 0;
+                        flake.x = Math.random() * w;
+                    }
+                }
+            }
+
+            setInterval(function(){
+                snow();
+                addFlake();
+            }, 20);
+
+            window.addEventListener('resize', function() {
+                h = document.documentElement.scrollHeight;
+                w = document.documentElement.scrollWidth;
+                canvas.height = h;
+                canvas.width = w;
+            });
+
+            window.addEventListener('scroll', function() {
+                snow();
+            });
+        });
+
+    </script>
+    <script>
+        // 创建雪花的数量
+        const numberOfSnowflakes = 100;
+
+        for (let i = 0; i < numberOfSnowflakes; i++) {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            document.body.appendChild(snowflake);
+
+            // 设置随机起始位置 (0% to 100% of the viewport width)
+            snowflake.style.left = Math.random() * 100 + 'vw';
+
+            // 设置随机动画延迟 (0s to 10s)
+            snowflake.style.animationDelay = Math.random() * 10 + 's';
+
+            // 设置随机大小 (5px to 25px)
+            snowflake.style.width = snowflake.style.height = (Math.random() * 20 + 5) + 'px';
+
+            // 设置随机动画持续时间 (5s to 20s)
+            snowflake.style.animationDuration = (Math.random() * 15 + 5) + 's';
+
+            // 设置随机旋转速度 (1 to 5)
+            snowflake.style.animationTimingFunction = `cubic-bezier(${Math.random()}, ${Math.random()}, ${Math.random()}, ${Math.random()})`;
+        }
+
+    </script> -->
+    </body>
+    
 </html>
+<!-- <div id="twitterFeed">
+    <!-- 这里放置从Twitter生成的widget代码 -->
+    <a class="twitter-timeline" href="https://twitter.com/RealDanielTang?ref_src=twsrc%5Etfw">Tweets by RealDanielTang</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div> -->
+
+
+
