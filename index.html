@@ -1,103 +1,269 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Xunzhu Tang, Daniel Tang, Tang Xunzhu, Tang Xunzhu Luxembourg, 唐训祝 卢森堡">
-    <meta name="description" content="Homepage of Xunzhu Tang at the University of Luxembourg.">
-    <title>Daniel Tang @ University of Luxembourg</title>
-    <link rel="stylesheet" href="https://code.jquery.com/jquery-3.6.0.min.js">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/fonts.css">
+<html>
+	<head>
+		<script type="text/javascript">
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		
+		  ga('create', 'UA-77256529-1', 'auto');
+		  ga('send', 'pageview');
+		
+		</script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		
+		<meta charset="UTF-8" />
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 320px auto;
-            padding: 20px;
-            max-width: 800px;
-            background-color: #a2def1;
-            color: #000;
-            line-height: 1.6;
-        }
-        a { color: blue; }
+		<title>Daniel Tang @ University of Luxembourg</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                padding: 20px;
+                max-width: 800px;
+                /* margin: auto; */
+                margin:320px;
+                padding: 20px;
 
-        .profile-container, .section-title, .boxed-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-        .profile-image {
-            max-width: 22%;
-            border-radius: 20%;
-            margin-right: 20px;
-        }
-        .profile-text, .menu li a {
-            text-align: justify;
-        }
-        .menu {
-            display: flex;
-            justify-content: space-around;
-            list-style-type: none;
-            padding-bottom: 20px;
-        }
-        .menu li a {
-            color: rgb(13, 12, 12);
-            text-decoration: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        .menu li a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-        .boxed-section {
-            background-color: rgb(247, 249, 249);
-            padding: 20px;
-            border: 1px solid #96c1ef;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-77256529-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-</head>
-<body>        
+                display: table;
 
-    <div class="header-container">
-        <nav>
-            <ul class="menu">
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./publications.html">Publications</a></li>
-                <li><a href="./artifacts.html">Artifacts</a></li>
-                <li><a href="./services.html">Services</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
+                width: 100%;
+                height: 100%;
+                background-color: #a2def1;
+                color: #000;
+                line-height: 1.6;
+                position: relative;
+                font-family: sans-serif;
+                /* overflow: auto; */
+            }
+            a {
+                color: blue;
+            }
+            
+        /* Generated CSS from SASS */
+            * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box !important;
+            }
 
-    <div class="profile-container">
-        <img src="images/tang.jpeg" class="profile-image" alt="Xunzhu Tang's Profile Image">
-        <div class="profile-text">
-            <h1 id="xunzhutang">Xunzhu Tang</h1>
-            <p>I am a third-year doctoral researcher, supervised by Prof. Dr. Tegawendé F. Bissyandé...</p>
-            <strong>Research interests:</strong>
-            <ul>
-                <li>Automatic Code Review System: CodeAgent</li>
-                <li>Software Security</li>
-            </ul>
-            <a href="https://scholar.google.com/citations?user=MxpAtQoAAAAJ&hl=en">Google Scholar</a> 
+            html, body {
+            height: 100%;
+            }
+
+            .lines {
+                z-index: -1;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 100%;
+                margin: auto;
+                width: 90vw;
+            }
+
+            .line {
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            top: 0;
+            left: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            }
+
+            .line::after {
+            content: '';
+            display: block;
+            position: absolute;
+            height: 15vh;
+            width: 100%;
+            top: -50%;
+            left: 0;
+            background: linear-gradient(to bottom, rgba(150, 241, 146, 0) 0%, #e690e3 75%, #41d0e6 100%);
+            animation: drop 2s 0s infinite;
+            animation-fill-mode: forwards;
+            animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+            }
+
+            .line:nth-child(1) {
+            margin-left: -25%;
+            }
+
+            .line:nth-child(1)::after {
+            animation-delay: 2s;
+            }
+
+            .line:nth-child(3) {
+            margin-left: 25%;
+            }
+
+            .line:nth-child(3)::after {
+            animation-delay: 2.5s;
+            }
+
+            @keyframes drop {
+            0% {
+                top: -50%;
+            }
+            100% {
+                top: 110%;
+            }
+            }    
+
+            .profile-container {
+                display: flex; /* 设置为flex布局 */
+                align-items: start; /* 使头像和文本内容在顶部对齐 */
+            }
+
+            .profile-image {
+                max-width: 22%;
+                min-width: 40px;
+                border-radius: 20%;
+                margin-right: 20px; /* 在图片右侧添加一些空间 */
+            }
+
+            .profile-text {
+                flex: 1; /* 使文本内容占据剩余的空间 */
+            }
+            .section-title {
+                display: flex;
+                align-items: center;  /* 垂直居中图标和文本 */
+                justify-content: center;  /* 水平居中图标和文本 */
+            }
+
+            .section-icon {
+                width: 40px;  /* 或您需要的其他大小 */
+                height: 40px;  /* 或您需要的其他大小 */
+                margin-right: 10px;  /* 在图标和文本之间添加一些间隙 */
+            }
+            .boxed-section {
+                background-color: rgb(247, 249, 249);  /* 背景颜色 */
+                padding: 20px;  /* 内部间距 */
+                border: 1px solid #96c1ef;  /* 边框 */
+                margin-bottom: 20px;  /* 下边距，使各个框之间有空间 */
+                text-align: center;  /* 使文本居中 */
+            }
+            div.boxed-section h4 {
+                text-align: left;
+            }
+
+            /* 如果您还需要标题居左，则可以添加以下样式 */
+            .boxed-section h2 {
+                text-align: left;
+            }
+
+            /* 导航栏 */
+            nav {
+                
+                background-size: cover;  /* 背景图片将覆盖整个nav区域 */
+                background-repeat: no-repeat;  /* 防止背景图片重复 */
+            }
+            nav {
+                padding: 20px 0;  /* 上下内边距 */
+            }
+
+            nav a {
+                color: rgb(16, 16, 16);  /* 超链接的颜色 */
+                padding: 5px 10px;  /* 给每个链接添加一些内边距 */
+                text-decoration: none;  /* 去掉下划线 */
+                transition: background-color 0.3s ease;  /* 平滑的背景颜色过渡效果 */
+            }
+
+            nav a:hover {
+                background-color: rgba(7, 193, 7, 0.2);  /* 悬停时的背景颜色 */
+            }
+
+            .header-container {
+                
+                background-size: cover;
+                padding: 10px 0;
+            }
+
+            .menu {
+                display: flex;
+                justify-content: space-around;
+                list-style-type: none;
+                padding-bottom: 20px;  /* Adds some space between nav and profile content */
+            }
+
+            .menu li a {
+                color: rgb(13, 12, 12);
+                text-decoration: none;
+                padding: 5px 10px;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
+
+            .menu li a:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+            
+            @keyframes snowfall {
+                to {
+                    transform: translateY(calc(100vh + 5%));
+                }
+            }
+
+        </style>
+        
+		
+		<meta name="keywords" content="Xunzhu Tang, Daniel Tang, Tang Xunzhu, Tang Xunzhu Luxembourg, 唐训祝 卢森堡" />
+	 	<meta name="description" content="Homepage, Xunzhu Tang, University of Luxembourg, Luxembourg" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/fonts.css" />
+	</head>
+
+	<body>        
+        
+
+        <br></br>
+
+        <div class="header-container">
+            <nav>
+                <ul class="menu">
+                  
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./publications.html">Publications</a></li>
+                    <li><a href="./artifacts.html">Artifacts</a></li>
+                    <li><a href="./services.html">Services</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                  
+                </ul>
+                <hr/>
+                </nav>
+        
+                <div class="profile-container">
+                    <img src="images/tang.jpeg" class="profile-image" alt="Xunzhu Tang's Profile Image">
+                
+                    <div class="profile-text">
+                        <h1 id="xunzhutang">Xunzhu Tang</h1>
+                        <br></br>
+                        <p style='text-align:justify;'>
+                            I am a third-year doctoral researcher, supervised by <a href="https://bissyande.github.io/">Prof. Dr. Tegawendé F. Bissyandé</a> (ERC Fellow), head in the group <a href="https://wwwen.uni.lu/snt">Trux</a>,
+                            and advised by <a href="https://jacquesklein2302.github.io/">Prof. Dr. Jacques Klein</a> in the Trux group, 
+                            <a href="https://wwwen.uni.lu/snt">Interdisciplinary Security and Trust Centre (SnT)</a>,
+                            <a href="https://wwwen.uni.lu/">University of Luxembourg (UL)</a>. 
+                            <!-- Rest of the content -->
+                        </p>
+                        <!-- ... -->
+                        <em><strong>Research interests:</strong></em>
+                        <p>
+                            <ul>
+                                <li>LLM-Based Agents for software engineering: CodeAgent, CodeChat</li>
+                                <li>Patch Representation and Explanation</li>
+                                <li>Software Security</li>
+                                <li>Automatic Programm Repair</li>
+                                <li>Large Code(Language) Model</li>
+                                <!-- Automated Program Repair, Patch Explanation, Pull Request Explanation, Bug Localization and Fixing, Healthcare, AI4SE, etc. -->
+                            </ul>
+                        </p>
+                        <p>
+                            <a href="https://scholar.google.com/citations?user=MxpAtQoAAAAJ&hl=en">Google Scholar</a> 
+                        </p>
+                    </div>
+                </div>
         </div>
-    </div>
         
     <div class="section-title">
         <img src="images/news.png" alt="Icon" class="section-icon">
