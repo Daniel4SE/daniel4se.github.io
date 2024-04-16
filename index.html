@@ -489,65 +489,7 @@
       <script async src="js/center-img.js"></script>
       <hr>&copy; <a href="https://Daniel4SE.github.io">Xunzhu Tang</a> 2022 | <a href="https://scholar.google.com/citations?user=MxpAtQoAAAAJ&hl=en">Google Scholar</a> | <a href="https://www.ccf.org.cn/c/2019-07-31/667605.shtml">CCF Rankings</a>
     </footer>
-        document.addEventListener('DOMContentLoaded', function(){
-            var canvas = document.createElement("canvas");
-            document.body.appendChild(canvas);
-            canvas.style.position = "fixed";
-            canvas.style.top = "0";
-            canvas.style.left = "0";
-            canvas.style.pointerEvents = "none";
-            canvas.style.zIndex = "1000";
-            var ctx = canvas.getContext("2d");
-            var flakes = [];
-            var maxFlakes = 500; // You can adjust this for more/less flakes
-            var h = document.documentElement.scrollHeight;
-            var w = document.documentElement.scrollWidth;
-            canvas.height = h;
-            canvas.width = w;
-
-            function addFlake() {
-                var x = Math.random() * w;
-                var y = 0;
-                var size = Math.random() * 3 + 2;
-                var speed = Math.random() * 1 + 0.5;
-                flakes.push({x: x, y: y, size: size, speed: speed});
-                if (flakes.length > maxFlakes) flakes.shift();
-            }
-
-            function snow() {
-                ctx.clearRect(0, 0, w, h);
-                for (var i = 0; i < flakes.length; i++) {
-                    var flake = flakes[i];
-                    ctx.beginPath();
-                    ctx.arc(flake.x, flake.y, flake.size, 0, Math.PI * 2);
-                    ctx.fillStyle = "white";
-                    ctx.fill();
-                    flake.y += flake.speed;
-                    if (flake.y > h) {
-                        flake.y = 0;
-                        flake.x = Math.random() * w;
-                    }
-                }
-            }
-
-            setInterval(function(){
-                snow();
-                addFlake();
-            }, 20);
-
-            window.addEventListener('resize', function() {
-                h = document.documentElement.scrollHeight;
-                w = document.documentElement.scrollWidth;
-                canvas.height = h;
-                canvas.width = w;
-            });
-
-            window.addEventListener('scroll', function() {
-                snow();
-            });
-        });
-
-    </script>
+        
     
     </body>
     
