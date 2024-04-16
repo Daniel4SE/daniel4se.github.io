@@ -39,14 +39,7 @@
             a {
                 color: blue;
             }
-            #twitterFeed {
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                width: 300px;
-                height: 500px;
-                overflow-y: auto;
-            }
+            
         /* Generated CSS from SASS */
             * {
             margin: 0;
@@ -282,8 +275,8 @@
         
         <!-- Rest of your content here -->
         <ul>
-            <li>🔊 2024-02, Our VisLingInstruct is accessible on ArXiv</li>
-            <li>🔊 2024-02, Our VisLingInstruct is accepted by ARR2023 (NAACL) Dec</li>
+	    <li>🔊 2024-04, Our TSED is accepted by ARR2024 (ACL2024) Feb</li>
+            <li>🔊 2024-02, Our VisLingInstruct is accepted by NAACL2024</li>
             <li>🔊 2024-02, CodeAgent invited as the project shown in PartnerShip Day of Snt</li>
             <li>🔊 2024-02, CodeAgent is invited to give a global talk @ SAP group</li>
             <li href="https://code-agent-new.vercel.app/index.html">🔊 2024-02, CodeAgent's test website is available </li>
@@ -302,8 +295,23 @@
         <h2 id="publications">Selected Publications (* Corresponding Author.)</h2>
     </div>
     <div class="boxed-section">
-
-        <h3>2024</h3>
+	<h3>2024</h3>
+	<h4 style="text-align: left;">ACL'24 (Short)</h4>
+        <p style='text-align:justify;'>&emsp;<a href="">Revisiting Code Similarity Evaluation with Abstract Syntax Tree Edit Distance</a>&nbsp;<a href="papers/">[pdf]</a>
+            <br>Yewei Song, Cedric Lothritz, <strong>Xunzhu Tang </strong>, Tegawende F. Bissyande, Jacques KLEIN.
+            <small>Accepted by <i>ARR for ACL'24 </i>, 2024. </small>
+        </p>
+	<h4 style="text-align: left;">ICSE'24 (POSTER)</h4>
+        <p style='text-align:justify;'>&emsp;<a href="">Learning to Represent Patches</a>&nbsp;<a href="papers/2023Patcherizer.pdf">[pdf]</a>
+            <br><strong>Xunzhu Tang </strong>, Haoye Tian*, Zhenghan Chen, Weiguo Pian, Saad Ezzini, Abdoul Kader Kabore, Andrew Habib, Jacques KLEIN, Tegawende F. Bissyande.
+            <small>Accepted by <i>ICSE'24 (POSTER)</i>, 2024. </small>
+        </p>
+        <h4 style="text-align: left;">ICSE'24 (SEIP)</h4>
+        <p style='text-align:justify;'>&emsp;<a href="">Enhancing Text-to-SQL Translation for Financial System Design</a>&nbsp;<a href="papers/Text2SQL.pdf">[pdf]</a>
+            <br>Yewei Song, Saad Ezzini, <strong>Daniel Tang</strong>, Cedric Lothritz, Jacques Klein, Tegawende Bissyande, Andrey Boytsov, Ulrick Ble, Anne Goujon
+            <small>Accepted by <i>ICSE SEIP </i>, 2024. </small>
+        </p>
+	    
         <h4 style="text-align: left;">NAACL'24</h4>
         <p style='text-align:justify;'>&emsp;<a href="">VisLingInstruct: Elevating Zero-Shot Learning in Multi-Modal Language Models with Autonomous Instruction Optimization</a>&nbsp;<a href="papers/vislinginstruct.pdf">[pdf]</a>
             <br>Dongsheng Zhu, <strong>Daniel Tang</strong>, Weidong Han, Jinghui Lu, Yukun Zhao, Guoliang Xing, Junfeng Wang, Dawei Yin
@@ -498,32 +506,7 @@
         });
 
     </script>
-    <script>
-        // 创建雪花的数量
-        const numberOfSnowflakes = 100;
-
-        for (let i = 0; i < numberOfSnowflakes; i++) {
-            const snowflake = document.createElement('div');
-            snowflake.className = 'snowflake';
-            document.body.appendChild(snowflake);
-
-            // 设置随机起始位置 (0% to 100% of the viewport width)
-            snowflake.style.left = Math.random() * 100 + 'vw';
-
-            // 设置随机动画延迟 (0s to 10s)
-            snowflake.style.animationDelay = Math.random() * 10 + 's';
-
-            // 设置随机大小 (5px to 25px)
-            snowflake.style.width = snowflake.style.height = (Math.random() * 20 + 5) + 'px';
-
-            // 设置随机动画持续时间 (5s to 20s)
-            snowflake.style.animationDuration = (Math.random() * 15 + 5) + 's';
-
-            // 设置随机旋转速度 (1 to 5)
-            snowflake.style.animationTimingFunction = `cubic-bezier(${Math.random()}, ${Math.random()}, ${Math.random()}, ${Math.random()})`;
-        }
-
-    </script> -->
+    
     </body>
     
 </html>
