@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript">
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		
+		  ga('create', 'UA-77256529-1', 'auto');
+		  ga('send', 'pageview');
+		
+		</script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		
+		<meta charset="UTF-8" />
+
+		<title>Daniel (Xunzhu) Tang @ University of Luxembourg</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                padding: 20px;
+                max-width: 800px;
+                /* margin: auto; */
+                margin:320px;
+                padding: 20px;
+
+                display: table;
+
+                width: 100%;
+                height: 100%;
+                background-color: #a2def1;
+                color: #000;
+                line-height: 1.6;
+                position: relative;
+                font-family: sans-serif;
+                /* overflow: auto; */
+            }
+            a {
+                color: blue;
+            }
+            
+        /* Generated CSS from SASS */
+            * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box !important;
+            }
+
+            html, body {
+            height: 100%;
+            }
+
+            .lines {
+                z-index: -1;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 100%;
+                margin: auto;
+                width: 90vw;
+            }
+
+            .line {
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            top: 0;
+            left: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            }
+
+            .line::after {
+            content: '';
+            display: block;
+            position: absolute;
+            height: 15vh;
+            width: 100%;
+            top: -50%;
+            left: 0;
+            background: linear-gradient(to bottom, rgba(150, 241, 146, 0) 0%, #e690e3 75%, #41d0e6 100%);
+            animation: drop 2s 0s infinite;
+            animation-fill-mode: forwards;
+            animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+            }
+
+            .line:nth-child(1) {
+            margin-left: -25%;
+            }
+
+            .line:nth-child(1)::after {
+            animation-delay: 2s;
+            }
+
+            .line:nth-child(3) {
+            margin-left: 25%;
+            }
+
+            .line:nth-child(3)::after {
+            animation-delay: 2.5s;
+            }
+
+            @keyframes drop {
+            0% {
+                top: -50%;
+            }
+            100% {
+                top: 110%;
+            }
+            }    
+
+            .profile-container {
+                display: flex; /* 设置为flex布局 */
+                align-items: start; /* 使头像和文本内容在顶部对齐 */
+            }
+
+            .profile-image {
+                max-width: 22%;
+                min-width: 40px;
+                border-radius: 20%;
+                margin-right: 20px; /* 在图片右侧添加一些空间 */
+            }
+
+            .profile-text {
+                flex: 1; /* 使文本内容占据剩余的空间 */
+            }
+            .section-title {
+                display: flex;
+                align-items: center;  /* 垂直居中图标和文本 */
+                justify-content: center;  /* 水平居中图标和文本 */
+            }
+
+            .section-icon {
+                width: 40px;  /* 或您需要的其他大小 */
+                height: 40px;  /* 或您需要的其他大小 */
+                margin-right: 10px;  /* 在图标和文本之间添加一些间隙 */
+            }
+            .boxed-section {
+                background-color: rgb(247, 249, 249);  /* 背景颜色 */
+                padding: 20px;  /* 内部间距 */
+                border: 1px solid #96c1ef;  /* 边框 */
+                margin-bottom: 20px;  /* 下边距，使各个框之间有空间 */
+                text-align: center;  /* 使文本居中 */
+            }
+            div.boxed-section h4 {
+                text-align: left;
+            }
+
+            /* 如果您还需要标题居左，则可以添加以下样式 */
+            .boxed-section h2 {
+                text-align: left;
+            }
+
+            /* 导航栏 */
+            nav {
+                
+                background-size: cover;  /* 背景图片将覆盖整个nav区域 */
+                background-repeat: no-repeat;  /* 防止背景图片重复 */
+            }
+            nav {
+                padding: 20px 0;  /* 上下内边距 */
+            }
+
+            nav a {
+                color: rgb(16, 16, 16);  /* 超链接的颜色 */
+                padding: 5px 10px;  /* 给每个链接添加一些内边距 */
+                text-decoration: none;  /* 去掉下划线 */
+                transition: background-color 0.3s ease;  /* 平滑的背景颜色过渡效果 */
+            }
+
+            nav a:hover {
+                background-color: rgba(7, 193, 7, 0.2);  /* 悬停时的背景颜色 */
+            }
+
+            .header-container {
+                
+                background-size: cover;
+                padding: 10px 0;
+            }
+
+            .menu {
+                display: flex;
+                justify-content: space-around;
+                list-style-type: none;
+                padding-bottom: 20px;  /* Adds some space between nav and profile content */
+            }
+
+            .menu li a {
+                color: rgb(13, 12, 12);
+                text-decoration: none;
+                padding: 5px 10px;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
+
+            .menu li a:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+            
+            @keyframes snowfall {
+                to {
+                    transform: translateY(calc(100vh + 5%));
+                }
+            }
+
+        </style>
+        
+		
+		<meta name="keywords" content="Xunzhu Tang, Daniel Tang, Tang Xunzhu, Tang Xunzhu Luxembourg, 唐训祝 卢森堡" />
+	 	<meta name="description" content="Homepage, Xunzhu Tang, University of Luxembourg, Luxembourg" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/fonts.css" />
+	</head>
+
+	<body>        
+        
+
+        <br></br>
+
+        <div class="header-container">
+            <nav>
+                <ul class="menu">
+                  
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./publications.html">Publications</a></li>
+                    <li><a href="./artifacts.html">Artifacts</a></li>
+                    <li><a href="./services.html">Services</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                  
+                </ul>
+                <hr/>
+                </nav>
+        
+                <div class="profile-container">
+                    <img src="images/tang.jpeg" class="profile-image" alt="Xunzhu Tang's Profile Image">
+                
+                    <div class="profile-text">
+                        <h1 id="xunzhutang">Xunzhu Tang</h1>
+                        <br></br>
+                        <p style='text-align:justify;'>
+                            Daniel (Xunzhu) is a doctoral researcher of Trux, 
+                            <a href="https://wwwen.uni.lu/snt">Interdisciplinary Security and Trust Centre (SnT)</a>,
+                            <a href="https://wwwen.uni.lu/">University of Luxembourg (UL)</a>. His research interests mainly relate to Code&Patch Explanation, Automatic Program Repair, Collaborative Agents for SE, Conversational IDE, Security in Large Language Model (LLM) (i.e, LLM poisoning, LLM watermarks).
+				His researches has been published in largely diverse top-tier conferences/journals in both NLP, SE, and ML communities, including ICSE, ASE, EMSE, ICLR, ACL, NAACL, etc. Furthermore, Daniel also work as PC/Reviewer/AC in SOSP, ACL, EMNLP, MSR, etc.
+                            <!-- Rest of the content -->
+                        </p>
+                        <!-- ... -->
+                        <em><strong>Research interests:</strong></em>
+                        <p>
+                            <ul>
+                                <li>LLM-Based Agents for software engineering: CodeAgent, CodeChat</li>
+                                <li>Patch Representation and Explanation</li>
+                                <li>Software Security</li>
+                                <li>Automatic Programm Repair</li>
+                                <li>Large Code(Language) Model</li>
+                                <!-- Automated Program Repair, Patch Explanation, Pull Request Explanation, Bug Localization and Fixing, Healthcare, AI4SE, etc. -->
+                            </ul>
+                        </p>
+                        <p>
+                            <a href="https://scholar.google.com/citations?user=MxpAtQoAAAAJ&hl=en">Google Scholar</a> 
+                        </p>
+                    </div>
+                </div>
+        </div>
+        
+    <div class="section-title">
+        <img src="images/news.png" alt="Icon" class="section-icon">
+        <h2>News</h2>
+    </div>
+    <div class="boxed-section">
+        
+        <!-- Rest of your content here -->
+        <ul>
+	    <li>🔊 2024-12, Our JLED is accepted by TOSEM'24 </li>
+	    <li>🔊 2024-09, Our CodeAgent is accepted by EMNLP'24 main track </li>
+	    <li>🔊 2024-08, Our DataRecipe is accepted by ASE'24 main track </li>
+	    <li>🔊 2024-08, Our BugRMSys is accepted by ASE'24 journal first </li>
+<!-- 	    <li>🔊 2024-07, Keynote of CodeAgent @NLPAICS, Lancaster </li> -->
+	    <li>🔊 2024-07, Our HedgeCode is accepted by ICSE'25 </li>
+	    <li>🔊 2024-04, Our TSED is accepted by ARR2024 (ACL'24) Feb</li>
+            <li>🔊 2024-02, Our VisLingInstruct is accepted by NAACL'24</li>
+<!--             <li>🔊 2024-02, CodeAgent invited as the project shown in PartnerShip Day of Snt</li> -->
+            <li>🔊 2024-02, CodeAgent is invited to give a global talk @ SAP group</li>
+<!--             <li href="https://code-agent-new.vercel.app/index.html">🔊 2024-02, CodeAgent's test website is available </li>
+            <li>🔊 2024-02, CodeAgent is released on Arxiv</li> -->
+<!--             <li>🔊 2024-02, two supervised papers accepted by ICLR'24 tiny track</li> -->
+            <li>🔊 2024-02, one paper accepted by ICLR'24 tiny track</li>
+            <li>🔊 2024-01, one paper accepted by ICSE'24 Poster</li>
+            <li>🔊 2023-12, one paper accepted by ICSE'24 SEIP</li>
+<!-- 	    <li>🔊 2023-08, serve as a junior PC member in MSR'24</li> -->
+            <li>🔊 2023-07, one paper accepted by ASE'23</li>
+        </ul>
+    </div>
+
+    <div class="section-title">
+        <img src="images/hardworking.jpg" alt="Icon" class="section-icon">
+        <h2 id="publications">Selected Publications (* Corresponding Author.)</h2>
+    </div>
+
+<tr>
+    <td><b>TOSEM'24</b></td>
+    <td>
+        <p style='text-align:justify;'><a href="">You Don’t Have to Say Where to Edit! Joint Learning to Localize and Edit Source Code</a>&nbsp;<a href="papers/jldt.pdf">[pdf]</a>
+             Weiguo Pian, Yinghua Li, Haoye Tian, Tiezhu Sun, Yewei Song, <strong>Xunzhu Tang</strong>, Andrew Habib, Jacques Klein, Tegawendé F. Bissyande.
+            <small>Accepted by <i>TOSEM 2024</i>i</small>
+        </p>
+    </td>
+</tr>
+		
+<tr>
+    <td><b>EMNLP'24</b></td>
+    <td>
+        <p style='text-align:justify;'><a href="">CodeAgent: Autonomous Communicative Agents for Code Review</a>&nbsp;<a href="papers/codeagent.pdf">[pdf]</a>
+            <strong>Xunzhu Tang *</strong>, Kisub Kim, Yewei Song, Cedric Lothritz, Bei Li, Saad Ezzini, Haoye Tian*, Jacques Klein, Tegawendé F. Bissyande.
+            <small>Accepted by <i>EMNLP'24 main paper</i>i</small>
+        </p>
+    </td>
+</tr>
+		
+<tr>
+    <td><b>ASE'24</b></td>
+    <td>
+        <p style='text-align:justify;'><a href="">DataRecipe — How to Cook the Data for CodeLLM?</a>&nbsp;<a href="">[pdf]</a>&nbsp;<a href="">[bib]</a>
+            Kisub Kim, Jounghoon Kim, Byeongjo Park, Dongsun Kim, Chun Yong Chong, Yuan Wang, Tiezhu Sun, <strong>Xunzhu Tang</strong>, Jacques Klein, Tegawendé F Bissyandé.
+            <small>Accepted by <i>ASE</i>, 2024. </small>
+        </p>
+    </td>
+</tr>
+<tr>
+    <td><b>ASE'24-JF</b></td>
+    <td>
+        <p style='text-align:justify;'><a href="">App Review Driven Collaborative Bug Finding</a>&nbsp;<a href="papers/EMSE_BugRMSys.pdf">[pdf]</a>&nbsp;<a href="">[bib]</a>
+            <strong>Xunzhu Tang</strong>, Haoye Tian *, Pingfan Kong, Saad Ezzini, Kui Liu, Xin Xia, Jacques Klein, Tegawendé F Bissyandé.
+            <small>Accepted by <i>ASE'24 Journal First</i>, 2024. </small>
+        </p>
+    </td>
+</tr>
+<tr>
+    <td><b>ICSE'25 main paper (1st round)</b></td>
+    <td>
+        <p style='text-align:justify;'><a href="">HedgeCode: A Multi-Task Hedging Contrastive Learning Framework for Code Search</a>&nbsp;<a href="papers/">[pdf]</a>
+            Gong Chen, Xiaoyuan Xie, <strong>Xunzhu Tang </strong>, Qi Xin Wenjie Liu.
+            <small>Accepted by <i>ICSE'2025</i>, 2024. </small>
+        </p>
+    </td>
+</tr>
+    <tr>
+    <td><b>ACL'24 (Short)</b></td>
+    <td>
+        <p style='text-align:justify;'><a href="">Revisiting Code Similarity Evaluation with Abstract Syntax Tree Edit Distance</a>&nbsp;<a href="papers/">[pdf]</a>
+            Yewei Song, Cedric Lothritz, <strong>Xunzhu Tang </strong>, Tegawende F. Bissyande, Jacques Klein.
+            <small>Accepted by <i>ARR for ACL'24</i>, 2024. </small>
+        </p>
+    </td>
+</tr>
+
+<tr>
+    <td><b>ICSE'24 (POSTER)</b></td>
+    <td>
+        <p style='text-align:justify;'><a href="">Learning to Represent Patches</a>&nbsp;<a href="papers/2023Patcherizer.pdf">[pdf]</a>
+            <strong>Xunzhu Tang </strong>, Haoye Tian*, Zhenghan Chen, Weiguo Pian, Saad Ezzini, Abdoul Kader Kabore, Andrew Habib, Jacques Klein, Tegawende F. Bissyande.
+            <small>Accepted by <i>ICSE'24 (POSTER)</i>, 2024. </small>
+        </p>
+    </td>
+</tr>
+
+<tr>
+    <td><b>ICSE'24 (SEIP)</b></td>
+    <td>
+        <p style='text-align:justify;'><a href="">Enhancing Text-to-SQL Translation for Financial System Design</a>&nbsp;<a href="papers/Text2SQL.pdf">[pdf]</a>
+            Yewei Song, Saad Ezzini, <strong>Xunzhu Tang</strong>, Cedric Lothritz, Jacques Klein, Tegawende Bissyande, Andrey Boytsov, Ulrick Ble, Anne Goujon
+            <small>Accepted by <i>ICSE SEIP</i>, 2024. </small>
+        </p>
+    </td>
+</tr>
+
+<tr>
+    <td><b>NAACL'24</b></td>
+    <td>
+        <p style='text-align:justify;'><a href="">VisLingInstruct: Elevating Zero-Shot Learning in Multi-Modal Language Models with Autonomous Instruction Optimization</a>&nbsp;<a href="papers/vislinginstruct.pdf">[pdf]</a>
+            Dongsheng Zhu, <strong>Xunzhu Tang</strong>, Weidong Han, Jinghui Lu, Yukun Zhao, Guoliang Xing, Junfeng Wang, Dawei Yin
+            <small>Accepted by <i>ARR2023 (NAACL)</i>, 2024. </small>
+        </p>
+    </td>
+</tr>
+
+
+
+<tr>
+    <td><b>ICLR'24 Tiny</b></td>
+    <td>
+        <p style='text-align:justify;'><a href="">Multilevel Semantic Embedding of Software Patches: A Fine-to-Coarse Grained Approach Towards Security Patch Detection</a>&nbsp;<a href="papers/MultiSEM.pdf">[pdf]</a>
+            <strong>Xunzhu Tang *</strong>, Zhenghan Chen, Saad Ezzini, Haoye Tian, Yewei Song, Jacques Klein, Tegawendé F. Bissyande.
+            <small>Accepted by <i>ICLR tiny</i>, 2024. </small>
+        </p>
+    </td>
+</tr>
+
+<tr>
+    <td><b>EMSE</b></td>
+    <td>
+        <p style='text-align:justify;'><a href="">App Review Driven Collaborative Bug Finding</a>&nbsp;<a href="papers/EMSE_BugRMSys.pdf">[pdf]</a>&nbsp;<a href="">[bib]</a>
+            <strong>Xunzhu Tang</strong>, Haoye Tian *, Pingfan Kong, Saad Ezzini, Kui Liu, Xin Xia, Jacques Klein, Tegawendé F Bissyandé.
+            <small>Accepted by <i>EMSE</i>, 2024. </small>
+        </p>
+    </td>
+</tr>
+
+<tr>
+    <td><b>TOSEM</b></td>
+    <td>
+        <p style='text-align:justify;'><a href="">Learning to Represent Patches</a>&nbsp;<a href="papers/2023Patcherizer.pdf">[pdf]</a>
+            <strong>Xunzhu Tang </strong>, Haoye Tian*, Zhenghan Chen, Weiguo Pian, Saad Ezzini, Abdoul Kader Kabore, Andrew Habib, Jacques Klein, Tegawende F. Bissyande.
+            <small>Major Revision in <i>TOSEM</i>, 2024. </small>
+        </p>
+    </td>
+</tr>
+
+
+<tr>
+    <td><b>ASE‘23</b></td>
+    <td>
+        <p style='text-align:justify;'><a href="">Delving into Commit-Issue Correlation to Enhance Commit Message Generation Models</a>&nbsp;<a href="papers/ase2023.pdf">[pdf]</a>&nbsp;<a href="https://arxiv.org/abs/2308.00147">[bib]</a>
+            Liran Wang, <strong>Xunzhu Tang</strong>, Yichen He, Changyu Ren, Shuhua Shi, Chaoran Yan, Zhoujun Li.
+            <small>Accepted for publication in <i>ASE</i>, 2023. </small>
+        </p>
+    </td>
+</tr>
+
+<tr>
+    <td><b>AAAI'23-W3PHIAI</b></td>
+    <td>
+        <p style='text-align:justify;'><a href="">Automatically Extracting Information in Medical Dialogue: Expert System And Attention for Labelling</a>&nbsp;<a href="papers/AAAI2023-W3PHIAI.pdf">[pdf]</a>&nbsp;<a href="https://scholar.googleusercontent.com/scholar.bib?q=info:0jFfx3SnU8UJ:scholar.google.com/&output=citation&scisdr=CgXUIJwrEP6gtA0UbyU:AAGBfm0AAAAAY5kSdyVTuj90A67AOiJDXG-QxZWvwWnM&scisig=AAGBfm0AAAAAY5kSd2eEiuoOL8l1PRTEPlbVz9bIsDbs&scisf=4&ct=citation&cd=-1&hl=en&scfhb=1">[bib]</a>
+            Xinshi Wang, <strong>Xunzhu Tang</strong>.
+            <small>Accepted for publication in <i>W3PHIAI23 (AAAI2023 workshop)</i>, 2023. </small>
+        </p>
+    </td>
+</tr>
+
+<tr>
+    <td><b>AAAI'23</b></td>
+    <td>
+        <p style='text-align:justify;'><a href="">MetaTPTrans: A Meta Learning Approach for Multilingual Code Representation Learning</a>&nbsp;<a href="papers/2023MetaTPTrans.pdf">[pdf]</a>&nbsp;<a href="https://scholar.googleusercontent.com/scholar.bib?q=info:iv25pnjUUPQJ:scholar.google.com/&output=citation&scisdr=CgUfPiIJEP6gtASfiVg:AAGBfm0AAAAAY5CZkVih_6bBp-L8ocETrfKXGNdsgNma&scisig=AAGBfm0AAAAAY5CZkf1ntRiISJtZmIzKPc4o1kie4unW&scisf=4&ct=citation&cd=-1&hl=en&scfhb=1">[bib]</a>
+            Weiguo Pian, Hanyu Peng, <strong>Xunzhu Tang</strong>, Tiezhu Sun, Haoye Tian*, Andrew Habib, Jacques Klein, Tegawendé F Bissyandé.
+            <small>Accepted for publication in <i>Proceedings of the 37th AAAI Conference on Artificial Intelligence</i>, 2023. [<b>Acceptance rate: 19.6% (1,721/8,777)</b>]</small>
+        </p>
+    </td>
+</tr>
+
+<tr>
+    <td><b>ASE'22</b></td>
+    <td>
+        <p style='text-align:justify;'><a href="">Is this Change the Answer to that Problem? Correlating Descriptions of Bug and Code Changes for Evaluating Patch Correctness</a>&nbsp;<a href="papers/2022_ASE_Quatrain__Haoye_.pdf">[pdf]</a>&nbsp;<a href="https://scholar.googleusercontent.com/scholar.bib?q=info:mB6XdyICHuYJ:scholar.google.com/&output=citation&scisdr=CgUfPiIJEP6gtASf9KM:AAGBfm0AAAAAY5CZ7KMNb5li56L0p_aiaam8K7r2-eZb&scisig=AAGBfm0AAAAAY5CZ7BndauArfuG0MMn3TwRu18Tx-pSZ&scisf=4&ct=citation&cd=-1&hl=en&scfhb=1">[bib]</a>
+            Haoye Tian, <strong>Xunzhu Tang</strong>, Andrew Habib, Shangwen Wang, Kui Liu*, Xin Xia, Jacques Klein, Tegawendé F. Bissyandé.
+            <small>Accepted in <i>Proceedings of the 37th IEEE/ACM International Conference on Automated Software Engineering</i>, 2022. [<b>Acceptance rate: 22.0% (116/527)</b>]
+            </small>
+        </p>
+    </td>
+</tr>
+
+<tr>
+    <td><b>DASFAA'22</b></td>
+    <td>
+        <p style='text-align:justify;'><a href="">HieNet: Bidirectional Hierarchy Framework for Automated ICD Coding</a>&nbsp;<a href="papers/2022DASFAAHieNet.pdf">[pdf]</a>&nbsp;<a href="https://scholar.googleusercontent.com/scholar.bib?q=info:qGYndtW6VKgJ:scholar.google.com/&output=citation&scisdr=CgUfPiIJEP6gtASQMqU:AAGBfm0AAAAAY5CWKqVecS1JdAbH4DSe60V6vGVjZGCc&scisig=AAGBfm0AAAAAY5CWKkYpVIlnkEZ6MCqcaBQAstRqPNyW&scisf=4&ct=citation&cd=-1&hl=en">[bib]</a>
+            Shi Wang, <strong>Daniel Tang*</strong>, Luchen Zhang, Huilin Li, Ding Han.
+            <small>Accepted for publication in <i>Database Systems for Advanced Applications</i>, 2022. [<b>Acceptance rate: 18% (72/400)</b>]</small>
+        </p>
+    </td>
+</tr>
+
+
+    <div class="section-title">
+        <img src="images/work.jpg" alt="Icon" class="section-icon">
+        <h2 id="professional-experience">Work Experience</h2>
+    </div>
+    <div class="boxed-section">
+        <ul>
+            <li><strong>Institute of Computing Technology, Chinese Academy of Sciences, Beijing, China</strong>, <em>Sep 2020 - Ocb 2021</em>, Research Assistant.</li>
+            <li><strong>Penn State University</strong>, <em>May 2020 - Aug 2020</em>, Research Assistant Intern.</li>
+        </ul>
+    </div>
+
+
+    <div class="section-title">
+        <img src="images/education.jpg" alt="Icon" class="section-icon">
+        <h2 id="Education">Education</h2>
+    </div>
+    <div class="boxed-section">
+        <ul>
+            <li>Doctor Degree, from University of Luxembourg, supervised by <a href="https://wwwen.uni.lu/snt/people/tegawende_francois_d_assise_bissyande">Prof. Dr. Tegawendé F. Bissyandé</a>, 15-10-2021 - Now.</li>
+            <li>Master Degree, from Huazhong University of Science and Technology, Wuhan, China, September 2016 - June 2021.</li>
+            <li>Bachelor Degree, from Guangxi University, Guangxi, China, September 2012 - June 2016.</li>
+        </ul>
+    </div>
+    
+    <div class="section-title">
+        <img src="images/telescope.jpg" alt="Icon" class="section-icon">
+        <h2 id="visitors">Visitors</h2>
+    </div>
+    <div class="boxed-section">
+        <ul>
+            <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=Wav6b_Af0g5wX1gmeQIfuUx5Rsczz9DxcCIANcUIwWQ"></script>
+        </ul>
+    </div>
+    
+
+    
+
+    <div class="lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    
+    <footer>
+      <script src="js/math-code.js"></script>
+      <script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      <script async src="js/center-img.js"></script>
+      <hr>&copy; <a href="https://Daniel4SE.github.io">Xunzhu Tang</a> 2022 | <a href="https://scholar.google.com/citations?user=MxpAtQoAAAAJ&hl=en">Google Scholar</a> | <a href="https://www.ccf.org.cn/c/2019-07-31/667605.shtml">CCF Rankings</a>
+    </footer>
+        
+    
+    </body>
+    
+</html>
+
+
+
+
