@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaching - Xunzhu Tang @ University of Luxembourg</title>
+    <meta name="keywords" content="Xunzhu Tang, Daniel Tang, Teaching, Courses, Supervision" />
+    <meta name="description" content="Teaching Activities, Courses, and Student Supervision by Dr. Xunzhu Tang" />
+    
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-77256529-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/modern-style.css">
+    <style>
+        .teaching-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            opacity: 0.9;
+        }
+
+        .course-card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .course-card:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .course-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .course-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .course-code {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .course-details {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .course-details i {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+            width: 20px;
+        }
+
+        .course-topics {
+            margin-top: 1rem;
+        }
+
+        .topic-tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            margin: 0.3rem;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .topic-tag:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .student-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .student-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .student-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .student-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .student-role {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            background: var(--bg-light);
+            color: var(--primary-color);
+            border-radius: 5px;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .student-topic {
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .student-period {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .teaching-philosophy {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .teaching-philosophy::before {
+            content: '"';
+            font-size: 8rem;
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            opacity: 0.1;
+        }
+
+        .philosophy-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .resource-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .resource-item {
+            background: var(--bg-light);
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .resource-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .resource-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .resource-content {
+            flex: 1;
+        }
+
+        .resource-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .resource-desc {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 0 0 3px var(--bg-light);
+        }
+
+        .alumni-badge {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            background: #10b981;
+            color: white;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="nav-brand">Dr. Xunzhu Tang</a>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="grants.html">Grants & Awards</a></li>
+                    <li><a href="teaching.html" class="active">Teaching</a></li>
+                    <li><a href="artifacts.html">Artifacts</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header Section -->
+        <section class="section">
+            <h1 class="section-title"><i class="fas fa-chalkboard-teacher"></i> Teaching & Supervision</h1>
+            
+            <!-- Statistics -->
+            <div class="teaching-stats">
+                <div class="stat-card">
+                    <div class="stat-number">-</div>
+                    <div class="stat-label">Courses Taught</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">-</div>
+                    <div class="stat-label">Students Taught</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">-</div>
+                    <div class="stat-label">PhD/MSc Supervised</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">-</div>
+                    <div class="stat-label">Teaching Rating</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teaching Philosophy -->
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-lightbulb"></i> Teaching Philosophy</h2>
+            <div class="teaching-philosophy">
+                <p class="philosophy-text">
+                    Teaching philosophy will be added here.
+                </p>
+            </div>
+        </section>
+
+        <!-- Current Courses -->
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-book-open"></i> Current Courses</h2>
+            
+            <div style="padding: 3rem; background: var(--bg-light); border-radius: 10px; text-align: center;">
+                <i class="fas fa-book" style="font-size: 3rem; color: var(--text-light); margin-bottom: 1rem; display: block;"></i>
+                <p style="color: var(--text-light); font-size: 1.1rem;">
+                    Course information will be added here.<br>
+                    Please check back later for details about current teaching activities.
+                </p>
+            </div>
+        </section>
+
+        <!-- Past Courses -->
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-history"></i> Past Courses</h2>
+            
+            <div style="padding: 2rem; background: var(--bg-light); border-radius: 10px; text-align: center;">
+                <p style="color: var(--text-light);">
+                    Past course information will be added here.
+                </p>
+            </div>
+        </section>
+
+        <!-- Student Supervision -->
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-user-graduate"></i> Student Supervision</h2>
+            
+            <h3 style="color: var(--primary-color); margin-bottom: 1.5rem;">Current Students</h3>
+            <div style="padding: 2rem; background: var(--bg-light); border-radius: 10px; text-align: center;">
+                <p style="color: var(--text-light);">
+                    Information about current PhD and Master's students will be added here.
+                </p>
+            </div>
+
+            <h3 style="color: var(--primary-color); margin: 2rem 0 1.5rem;">Alumni</h3>
+            <div style="padding: 2rem; background: var(--bg-light); border-radius: 10px; text-align: center;">
+                <p style="color: var(--text-light);">
+                    Information about graduated students will be added here.
+                </p>
+            </div>
+        </section>
+
+        <!-- Teaching Resources -->
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-folder-open"></i> Teaching Resources</h2>
+            
+            <div style="padding: 2rem; background: var(--bg-light); border-radius: 10px; text-align: center;">
+                <p style="color: var(--text-light);">
+                    Teaching resources and materials will be added here.
+                </p>
+            </div>
+        </section>
+
+        <!-- Guest Lectures -->
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-user-tie"></i> Guest Lectures & Workshops</h2>
+            
+            <div style="padding: 2rem; background: var(--bg-light); border-radius: 10px; text-align: center;">
+                <p style="color: var(--text-light);">
+                    Information about guest lectures and workshops will be added here.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 <a href="https://Daniel4SE.github.io">Xunzhu Tang</a> | 
+            <a href="https://scholar.google.com/citations?user=MxpAtQoAAAAJ&hl=en">Google Scholar</a> | 
+            <a href="https://github.com/Daniel4SE">GitHub</a> | 
+            <a href="https://www.ccf.org.cn/c/2019-07-31/667605.shtml">CCF Rankings</a></p>
+            <p>Last updated: December 2024</p>
+        </div>
+    </footer>
+</body>
+</html>

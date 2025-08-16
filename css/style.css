@@ -1,0 +1,79 @@
+body {
+  max-width: 1050px;
+  margin: auto;
+  padding: 1em;
+  line-height: 1.5em;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 0.5em;
+  }
+}
+
+/* header and footer areas */
+.menu { 
+  padding: 0; 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.menu li { 
+  display: inline-block;
+  margin: 5px;
+}
+.article-meta, .menu a {
+  text-decoration: none;
+  background: #eee;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+.menu a:hover {
+  background-color: #ddd;
+}
+.menu, .article-meta, footer { text-align: center; }
+
+@media (max-width: 480px) {
+  .menu {
+    flex-direction: column;
+    align-items: center;
+  }
+  .menu li {
+    margin: 3px 0;
+  }
+}
+.title { font-size: 0.9em; }
+footer a { text-decoration: none; }
+hr {
+  border-style: dashed;
+  color: #ddd;
+}
+
+/* code */
+pre {
+  border: 1px solid #ddd;
+  box-shadow: 5px 5px 5px #eee;
+  padding: 1em;
+  overflow-x: auto;
+}
+code { background: #f9f9f9; }
+pre code { background: none; }
+
+/* misc elements */
+img, iframe, video { max-width: 100%; }
+main { hyphens: auto; }
+blockquote {
+  background: #f9f9f9;
+  border-left: 5px solid #ccc;
+  padding: 3px 1em 3px;
+}
+
+table {
+  margin: auto;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #666;
+}
+table thead th { border-bottom: 1px solid #ddd; }
+th, td { padding: 5px; }
+thead, tfoot, tr:nth-child(even) { background: #eee }
