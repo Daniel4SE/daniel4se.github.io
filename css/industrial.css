@@ -726,6 +726,20 @@ nav.ind-nav {
 .hero h1 .alias { color: #667286; }
 .hero-affil { color: #647083; }
 .hero-affil a { color: #44536a; border-bottom-color: #aeb8c7; }
+.hero-award {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-left: 0.7rem;
+  padding: 0.24rem 0.58rem;
+  border: 1px solid #89a4ce;
+  background: #eaf1fb;
+  color: #244f91;
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.hero-award i { font-size: 0.76rem; }
 
 .identity-list { gap: 0; border-top: 1px solid var(--paper-line); }
 .identity-row {
@@ -891,6 +905,7 @@ footer.ind-footer a { color: #45536a; }
 @media (max-width: 900px) {
   .hero-inner { grid-template-columns: 1fr; padding: 3.25rem 0 3rem; }
   .identity-row { align-items: flex-start; }
+  .hero-award { margin: 0.65rem 0 0; }
   .recognition-grid { grid-template-columns: 1fr; }
   .recognition-item { min-height: auto; }
 }
